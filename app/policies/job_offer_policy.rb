@@ -1,4 +1,4 @@
-class JobOffer < ApplicationPolicy
+class JobOfferPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       user.admin? ? scope.all : scope.where(user_type: current_user.user_type)
@@ -6,6 +6,10 @@ class JobOffer < ApplicationPolicy
   end
   def index
     # tous le monde peut voir les offres d'emploi
+    true
+  end
+
+  def show?
     true
   end
 

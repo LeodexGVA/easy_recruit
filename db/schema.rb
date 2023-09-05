@@ -10,18 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_05_095215) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_05_131444) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "applications", force: :cascade do |t|
+  create_table "candidatures", force: :cascade do |t|
     t.string "status"
     t.bigint "job_offer_id", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["job_offer_id"], name: "index_applications_on_job_offer_id"
-    t.index ["user_id"], name: "index_applications_on_user_id"
+    t.index ["job_offer_id"], name: "index_candidatures_on_job_offer_id"
+    t.index ["user_id"], name: "index_candidatures_on_user_id"
   end
 
   create_table "companies", force: :cascade do |t|
@@ -85,10 +85,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_05_095215) do
     t.date "date"
     t.time "time"
     t.string "status"
-    t.bigint "application_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["application_id"], name: "index_time_slots_on_application_id"
+    t.bigint "candidature_id"
+    t.index ["candidature_id"], name: "index_time_slots_on_candidature_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -111,13 +111,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_05_095215) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "applications", "job_offers"
-  add_foreign_key "applications", "users"
+  add_foreign_key "candidatures", "job_offers"
+  add_foreign_key "candidatures", "users"
   add_foreign_key "companies", "users"
   add_foreign_key "feedbacks", "interviews"
   add_foreign_key "feedbacks", "users"
   add_foreign_key "interviews", "time_slots"
   add_foreign_key "job_offers", "companies"
   add_foreign_key "steps", "job_offers"
-  add_foreign_key "time_slots", "applications"
+  add_foreign_key "time_slots", "candidatures"
 end

@@ -2,7 +2,7 @@ class JobOffer < ApplicationRecord
   # Associations
   belongs_to :company
   has_many :steps, dependent: :destroy
-  has_many :applications, dependent: :destroy
+  has_many :candidatures, dependent: :destroy
   # Validations
   validates :title, presence: true, length: { minimum: 5 }
   validates :description, presence: true, length: { minimum: 10 }

@@ -1,4 +1,4 @@
-class Application < ApplicationRecord
+class Candidature < ApplicationRecord
   # Associations
   belongs_to :job_offer
   belongs_to :user

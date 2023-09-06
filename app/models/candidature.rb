@@ -4,7 +4,7 @@ class Candidature < ApplicationRecord
   belongs_to :user
   has_many :time_slots, dependent: :destroy
   has_many :interviews, through: :time_slots
-  has_many_attached :files
+  # has_many_attached :files
   # Validations
   validates :job_offer, presence: true
   validates :user, presence: true

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_05_131444) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_06_102234) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -53,7 +53,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_05_131444) do
     t.bigint "time_slot_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id", null: false
     t.index ["time_slot_id"], name: "index_interviews_on_time_slot_id"
+    t.index ["user_id"], name: "index_interviews_on_user_id"
   end
 
   create_table "job_offers", force: :cascade do |t|
@@ -117,6 +119,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_05_131444) do
   add_foreign_key "feedbacks", "interviews"
   add_foreign_key "feedbacks", "users"
   add_foreign_key "interviews", "time_slots"
+  add_foreign_key "interviews", "users"
   add_foreign_key "job_offers", "companies"
   add_foreign_key "steps", "job_offers"
   add_foreign_key "time_slots", "candidatures"

@@ -10,8 +10,8 @@ User.destroy_all
 Company.destroy_all
 JobOffer.destroy_all
 Candidature.destroy_all
-TimeSlot.destroy_all
 Interview.destroy_all
+TimeSlot.destroy_all
 
 puts "Creating user test"
 userRecruiter = User.create!(first_name: "Dylan", last_name: "C", email: "test@gmail.com", password: "1234567", address: "24 chemin des champs gottreux", phone: "123456", user_type: "recruiter", admin: false)

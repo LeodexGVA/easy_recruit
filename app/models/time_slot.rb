@@ -1,7 +1,7 @@
 class TimeSlot < ApplicationRecord
   # Associations
   belongs_to :candidature
-  has_many :interviews
+  has_many :interviews, dependent: :destroy
   # Validations
   validates :time, presence: true
   validates :date, presence: true

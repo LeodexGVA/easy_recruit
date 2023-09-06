@@ -10,8 +10,8 @@ User.destroy_all
 Company.destroy_all
 JobOffer.destroy_all
 Candidature.destroy_all
-TimeSlot.destroy_all
 Interview.destroy_all
+TimeSlot.destroy_all
 
 puts "Creating user test"
 userRecruiter = User.create!(first_name: "Dylan", last_name: "C", email: "test@gmail.com", password: "1234567", address: "24 chemin des champs gottreux", phone: "123456", user_type: "recruiter", admin: false)
@@ -29,5 +29,7 @@ timeSlotTest = TimeSlot.create(date: Date.tomorrow, time: Time.now, candidature:
 puts "interview test"
 puts timeSlotTest.errors.full_messages
 interviewTest = Interview.create(time_slot: timeSlotTest, status: "Upcoming", user: userRecruiter)
+puts "feedback test"
+feedbackTest = Feedback.create(score: 4, comment: "Ceci est un super commentaire pour indiquer que c'est un entretien génial", user: userCandidate, interview: interviewTest)
 puts "finished seeding"
 puts interviewTest.errors.full_messages

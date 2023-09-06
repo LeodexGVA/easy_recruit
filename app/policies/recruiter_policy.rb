@@ -5,8 +5,8 @@ class RecruiterPolicy < ApplicationPolicy
     #   scope.all
     # end
   end
-  
+
   def index?
-    user.user_type == "recruiter"
+    true
   end
 end

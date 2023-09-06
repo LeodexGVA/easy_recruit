@@ -1,10 +1,16 @@
 class JobOfferPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      user.admin? ? scope.all : scope.where(user_type: current_user.user_type)
+      if user.recruiter? || user.admin?
+        # Les recruteurs et les administrateurs voient toutes les offres
+        scope.all
+      else
+        # Les utilisateurs réguliers voient les offres liées à leur entreprise
+        scope.joins(company: :user).where(users: { id: user.id })
+      end
     end
   end
-  def index
+  def index?
     # tous le monde peut voir les offres d'emploi
     true
   end

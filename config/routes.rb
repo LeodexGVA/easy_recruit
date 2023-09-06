@@ -7,7 +7,6 @@ Rails.application.routes.draw do
   # root "articles#index"
   resources :company, only: [] do
     resources :job_offers, only: [:show, :index, :edit, :update, :destroy]
-    
-  resources :job_offers do [:index, :new, :create]
   end
+  resources :job_offers, only: [:index, :new, :create]
 end

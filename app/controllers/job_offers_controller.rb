@@ -40,7 +40,7 @@ class JobOffersController < ApplicationController
 
   def show
     @job_offer = JobOffer.find(params[:id]) # on récupère l'offre d'emploi
-    @company = Company.find(params[:company_id]) # on récupère l'entreprise qui a posté l'offre d'emploi
+    @company = @job_offer.company # on récupère l'entreprise qui a posté l'offre d'emploi
     @candidatures = @job_offer.candidatures # on récupère les candidatures de l'offre d'emploi
     authorize @job_offer # vérifie l'autorisation avec Pundit
   end

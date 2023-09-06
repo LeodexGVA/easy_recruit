@@ -8,5 +8,5 @@ Rails.application.routes.draw do
   resources :companies, only: [] do
     resources :job_offers, only: [:show, :index, :edit, :update, :destroy]
   end
-  resources :job_offers, only: [:index, :new, :create]
+  resources :job_offers, only: [:index, :new, :create, :show]
 end

@@ -29,5 +29,7 @@ timeSlotTest = TimeSlot.create(date: Date.tomorrow, time: Time.now, candidature:
 puts "interview test"
 puts timeSlotTest.errors.full_messages
 interviewTest = Interview.create(time_slot: timeSlotTest, status: "Upcoming", user: userRecruiter)
+puts "feedback test"
+feedbackTest = Feedback.create(score: 4, comment: "Ceci est un super commentaire pour indiquer que c'est un entretien génial", user: userCandidate, interview: interviewTest)
 puts "finished seeding"
 puts interviewTest.errors.full_messages

@@ -13,6 +13,7 @@ class User < ApplicationRecord
   has_many :job_offers_as_recruiter, through: :companies, source: :job_offers
   has_one :company, dependent: :destroy
   has_many :feedbacks, dependent: :destroy
+  has_many :interviews, dependent: :destroy
   # Associations cloudinary
   # has_one_attached :avatar
   # Validations

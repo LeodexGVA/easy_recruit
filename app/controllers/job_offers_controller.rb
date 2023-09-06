@@ -1,6 +1,7 @@
 class JobOffersController < ApplicationController
   def index
     @job_offers = policy_scope(JobOffer)
+    @job_offers = JobOffer.where(company_id: current_user.company.id) # on récupère toutes les offres d'emploi du recruteur
   end
 
   def new
@@ -11,7 +12,7 @@ class JobOffersController < ApplicationController
   def create
     authorize @job_offer # vérifie l'autorisation avec Pundit
     @job_offer = JobOffer.new(job_offer_params)
-    @job_offer.user = current_user # l'utilisateur courant est le recruteur
+    @job_offer.company = current_user.company # l'utilisateur courant est le recruteur
 
     if @job_offer.save
       redirect_to @job_offer
@@ -45,7 +46,7 @@ class JobOffersController < ApplicationController
     authorize @job_offer # vérifie l'autorisation avec Pundit
     @job_offer = JobOffer.find(params[:id])
     @job_offer.destroy
-    redirect_to job_offers_path
+    redirect_to job_offers_path # on redirige vers la liste des offres d'emploi
   end
 
   def job_offer_params

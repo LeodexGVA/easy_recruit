@@ -1,0 +1,21 @@
+<div class="container my-5">
+  <h1>Nouvelle proposition d'entretien</h1>
+  <!-- app/views/time_slots/new.html.erb -->
+  <div data-controller="time-slot-form">
+    <div data-time-slot-form-target="step" class="step-1">
+      <!-- Étape 1 : Sélection de l'offre -->
+      <!-- Votre formulaire pour l'étape 1 ici -->
+      <button data-action="click->time-slot-form#nextStep" data-step="2">Étape suivante</button>
+    </div>
+    <div data-time-slot-form-target="step" class="step-2 hidden">
+      <!-- Étape 2 : Sélection des candidats -->
+      <!-- Votre formulaire pour l'étape 2 ici -->
+      <button data-action="click->time-slot-form#nextStep" data-step="3">Étape suivante</button>
+    </div>
+    <div data-time-slot-form-target="step" class="step-3 hidden">
+      <!-- Étape 3 : Création du créneau -->
+      <!-- Votre formulaire pour l'étape 3 ici -->
+      <button data-action="click->time-slot-form#nextStep" data-step="1">Envoyer une invitation</button>
+    </div>
+  </div>
+</div>

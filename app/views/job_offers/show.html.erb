@@ -1,0 +1,37 @@
+<div class="container my-5">
+  <h1 class="mb-5"><%= @job_offer.title.capitalize %></h1>
+  <div class="job_offer_details mb-5">
+    <h2>Détails de l'offre</h2>
+    <p><strong>ℹ️ Description:</strong> <%= @job_offer.description %></p>
+    <p><strong>📍 Adresse:</strong> <%= @job_offer.address %></p>
+    <p><strong>⭐️ Compétences:</strong> <%= @job_offer.skills %></p>
+    <p><strong>🎓 Prérequis:</strong> <%= @job_offer.requirements %></p>
+    <p><strong>📑 Type de contrat:</strong> <%= @job_offer.contract_type %></p>
+    <p><strong>📅 Dates:</strong> Du <%= @job_offer.start_date %> au <%= @job_offer.end_date %></p>
+  </div>
+  <div class="company_details mb-5">
+    <h2>En savoir plus sur <strong><%= @company.name.capitalize %></strong></h2>
+    <p><strong>💼 Secteur:</strong> <%= @company.industry %></p>
+    <p><strong>ℹ️ Description:</strong> <%= @company.description %></p>
+    <p><strong>📍 Adresse:</strong> <%= @company.address %></p>
+    <p><strong>📧 Email:</strong> <%= @company.email %></p>
+    <p><strong>📞 Téléphone:</strong> <%= @company.phone %></p>
+  </div>
+  <div class="candidatures_details mb-5">
+    <h2>Candidatures</h2>
+    <% if @candidatures.empty? %>
+      <p>Pas encore de candidat pour votre offre !</p>
+    <% else %>
+      <% @candidatures.each do |candidature| %>
+        <div class="col-md-4 col-sm-6 mb-4">
+          <div class="card" data-aos="zoom-in">
+            <div class="card-body">
+              <%= candidature.user.name %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+
+  </div>
+</div>

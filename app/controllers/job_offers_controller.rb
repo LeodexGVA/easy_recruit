@@ -9,8 +9,8 @@ class JobOffersController < ApplicationController
   end
 
   def create
-    authorize @job_offer # vérifie l'autorisation avec Pundit
     @job_offer = JobOffer.new(job_offer_params)
+    authorize @job_offer # vérifie l'autorisation avec Pundit
     @job_offer.user = current_user # l'utilisateur courant est le recruteur
 
     if @job_offer.save

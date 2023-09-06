@@ -10,9 +10,11 @@ class JobOffersController < ApplicationController
   end
 
   def create
-    authorize @job_offer # vérifie l'autorisation avec Pundit
     @job_offer = JobOffer.new(job_offer_params)
+
     @job_offer.company = current_user.company # l'utilisateur courant est le recruteur
+    authorize @job_offer # vérifie l'autorisation avec Pundit
+
 
     if @job_offer.save
       redirect_to @job_offer
@@ -37,9 +39,10 @@ class JobOffersController < ApplicationController
   end
 
   def show
-    authorize @job_offer # vérifie l'autorisation avec Pundit
     @job_offer = JobOffer.find(params[:id]) # on récupère l'offre d'emploi
-    @company = Company.where(job_offer_id: params[:id]) # on récupère l'entreprise qui a posté l'offre d'emploi
+    @company = Company.find(params[:company_id]) # on récupère l'entreprise qui a posté l'offre d'emploi
+    @candidatures = @job_offer.candidatures # on récupère les candidatures de l'offre d'emploi
+    authorize @job_offer # vérifie l'autorisation avec Pundit
   end
 
   def destroy
@@ -48,6 +51,8 @@ class JobOffersController < ApplicationController
     @job_offer.destroy
     redirect_to job_offers_path # on redirige vers la liste des offres d'emploi
   end
+
+  private
 
   def job_offer_params
     params.require(:job_offer).permit(:title, :description, :industry, :address, :skills, :requirements, :contract_type, :start_date, :end_date, :company_id)

@@ -15,6 +15,10 @@ class JobOfferPolicy < ApplicationPolicy
     true
   end
 
+  def show?
+    true
+  end
+
   # Seulement les recruteurs peuvent créer une offre d'emploi
   def create?
     user.recruiter? || user.admin?

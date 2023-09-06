@@ -1,28 +1,9 @@
-<div class="container">
-  <div class="row justify-content-center">
-    <div class="col-md-6">
-      <%= simple_form_for(@job_offer, html: { class: 'custom-form' }) do |f| %>
-        <%= f.error_notification %>
-        <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-        <div class="form-inputs">
-          <%= f.input :title, label: "Titre de l'emploi" %>
-          <%= f.select :industry, %w[IT Finance Marketing Other], { include_blank: "Sélectionner le secteur d'emploi" } %>
-          <%= f.select :contract_type, %w[Full-time Part-time], { include_blank: "Sélectionner le type de contrat" } %>
-          <%= f.input :address, label: 'Adresse' %>
-          <%= f.input :skills, label: 'Skills' %>
-          <%= f.input :requirements, label: 'Requirements' %>
-          <%= f.input :description, label: 'Description' %>
-          <!-- <%= f.input :images, as: :file, label: 'Images', input_html: { multiple: true } %> -->
-          <!-- Champ de date de début -->
-          <%= f.input :start_date, as: :string, label: 'Date de début', input_html: { data: { controller: 'datepicker' } }%>
-          <!-- Champ de date de fin -->
-          <%= f.input :end_date, as: :string, label: 'Date de fin', input_html: { data: { controller: 'datepicker' } } %>
-        </div>
+<h2 class="text-center mb-4">Ajouter une nouvelle offre</h2>
+<%= render 'form', job_offer: @job_offer %>
 
-        <div class="form-actions text-center mt-4">
-          <%= f.button :submit, class: 'btn btn-primary mb-2'%>
-        </div>
-      <% end %>
-    </div>
-  </div>
+<br>
+
+<div>
+  <%= link_to "Revenir à vos Pokémon", job_offers_path, class: "pokemon-btn btn btn-light" %>
+
 </div>

@@ -24,13 +24,13 @@ class JobOffersController < ApplicationController
   end
 
   def edit
-    authorize @job_offer # vérifie l'autorisation avec Pundit
     @job_offer = JobOffer.find(params[:id])
+    authorize @job_offer # vérifie l'autorisation avec Pundit
   end
 
   def update
-    authorize @job_offer # vérifie l'autorisation avec Pundit
     @job_offer = JobOffer.find(params[:id])
+    authorize @job_offer # vérifie l'autorisation avec Pundit
     if @job_offer.update(job_offer_params)
       redirect_to @job_offer
     else
@@ -46,8 +46,8 @@ class JobOffersController < ApplicationController
   end
 
   def destroy
-    authorize @job_offer # vérifie l'autorisation avec Pundit
     @job_offer = JobOffer.find(params[:id])
+    authorize @job_offer # vérifie l'autorisation avec Pundit
     @job_offer.destroy
     redirect_to job_offers_path # on redirige vers la liste des offres d'emploi
   end

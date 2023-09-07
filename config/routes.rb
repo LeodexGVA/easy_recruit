@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   resources :job_offers
 
   resources :interviews, only: [:show, :index, :edit, :update, :destroy] do
-    resources :feedbacks, only: [:new, :create]
+    resources :feedbacks, only: [:new, :create, :update]
   end
 
   resources :time_slots

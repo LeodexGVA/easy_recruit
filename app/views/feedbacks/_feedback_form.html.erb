@@ -1,0 +1,19 @@
+<%= form_with(model: [@feedback, @interview], url: interview_feedbacks_path(@interview), method: :post) do |form| %>
+  <!-- Champs du formulaire pour le feedback, par exemple : -->
+  <% if @feedback.errors.any? %>
+  <% @feedback.errors.full_messages.each do |message|%>
+  <p><%= message %> </p>
+  <%end%>
+<%end%>
+  <div class="field">
+    <%= form.label :comment %>
+    <%= form.text_area :comment %>
+  </div>
+
+  <div class="field">
+    <%= form.label :score %>
+    <%= form.select :score, (1..5).to_a %>
+  </div>
+
+  <%= form.submit 'Ajouter le feedback' %>
+<% end %>

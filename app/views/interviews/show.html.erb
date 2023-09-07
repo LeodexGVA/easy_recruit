@@ -6,13 +6,14 @@
     <p><strong>📍 Time:</strong> <%= @time_slot.time %></p>
     <p><strong>⭐️ status:</strong> <%= @time_slot.status %></p>
   </div>
-  <div class="company_details mb-5">
-    <h2>Feedback</h2>
-    <p><strong>💼 Score:</strong> <% @feedbacks.each do |feedback|%>
-    <%= feedback.score %>
-      <% end %></p>
-    <p><strong>ℹ️ Comment:</strong> <% @feedbacks.each do |feedback|%>
-    <%= feedback.comment %>
-      <% end %></p>
-  </div>
 </div>
+<!-- Afficher les feedbacks existants -->
+<% @interview.feedbacks.each do |feedback| %>
+  <div class="feedback">
+    <%= feedback.comment %>
+    <%= feedback.score %>
+  </div>
+<% end %>
+
+<!-- Inclure la partialle du formulaire de feedback -->
+<%= render 'feedbacks/feedback_form' %>

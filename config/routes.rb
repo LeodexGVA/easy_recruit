@@ -8,10 +8,14 @@ Rails.application.routes.draw do
     resources :interviews, only: [:show, :index, :edit, :update, :destroy]
   end
 
+  resources :job_offers, only: [] do
+    resources :candidatures
+  end
+
+
   resources :companies, only: [] do
     resources :job_offers, only: [:show, :index, :edit, :update, :destroy]
   end
-  resources :job_offers
 
   resources :interviews, only: [:show, :index, :edit, :update, :destroy] do
     resources :feedbacks, only: [:new, :create, :update]

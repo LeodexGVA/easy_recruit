@@ -1,0 +1,21 @@
+<div class="container my-5">
+  <h1>Candidatures pour l'offre</h1>
+
+  <!-- Formulaire pour gérer les candidatures sélectionnées -->
+  <%= form_tag new_time_slot_path, method: :post do %>
+    <% @candidatures.each do |candidature| %>
+      <div class="col-md-4 col-sm-6 mb-4">
+        <div class="card" data-aos="zoom-in">
+          <div class="card-body">
+            <%= check_box_tag "selected_candidatures[]", candidature.id, false, class: "candidature-checkbox" %>
+            <%= candidature.user.first_name %> <%= candidature.user.last_name %>
+              <a href="#" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#show_modal"><span class="fa-solid fa-plus"></span> Plus d'info</a>
+            <%= render "show_modal", candidature: candidature %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    <!-- Bouton pour passer à l'étape suivante -->
+    <%= submit_tag "Suivante", class: "btn btn-primary" %>
+  <% end %>
+</div>

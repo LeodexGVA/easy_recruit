@@ -20,7 +20,7 @@
     <p><strong>📞 Téléphone:</strong> <%= @company.phone %></p>
   </div>
   <%# Lien vers l'index des candidatures lié à l'offre %>
-  <%= link_to "Créer un entretien", candidatures_path, class: "btn btn-primary" %>
+  <%= link_to "Créer un entretien", job_offer_candidatures_path(@job_offer), class: "btn btn-primary" %>
   <%# Liste des candidatures lié à l'offre %>
   <div class="candidatures_details mb-5">
     <h2>Candidatures</h2>

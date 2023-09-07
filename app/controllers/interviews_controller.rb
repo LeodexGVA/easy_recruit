@@ -1,7 +1,7 @@
 class InterviewsController < ApplicationController
   def index
     @interviews = policy_scope(Interview)
-    @interviews = JobOffer.where(user_id: current_user.id) # on récupère toutes les candidatures du candidat
+    @interviews = JobOffer.where(user_id: current_user.id) # on récupère toutes les entretiens du candidat
   end
 
   def new

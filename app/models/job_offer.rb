@@ -3,6 +3,8 @@ class JobOffer < ApplicationRecord
   belongs_to :company
   has_many :steps, dependent: :destroy
   has_many :candidatures, dependent: :destroy
+  has_many :time_slots, through: :candidatures
+  has_many :interviews, through: :time_slots
   # Validations
   validates :title, presence: true, length: { minimum: 5 }
   validates :description, presence: true, length: { minimum: 10 }

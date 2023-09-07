@@ -1,0 +1,23 @@
+<%# Afficher la page des entretiens liés à une offre %>
+<%# Afficher le nom du candidat lié à l'entretien %>
+<%# Sélectionner le candidat concerné par l'offre et l'afficher %>
+<% @interviews.each do |interview| %>
+  <div class="container my-5">
+    <h1 class="mb-5">Entretien de <%= interview.user.last_name.capitalize %></h1>
+    <div class="job_offer_details mb-5">
+      <h2>Informations sur l'entretien</h2>
+      <p><strong>ℹ️ Date:</strong> <%= interview.time_slot.date %></p>
+      <p><strong>📍 Heure:</strong> <%= interview.time_slot.time %></p>
+      <p><strong>⭐️ Status:</strong> <%= interview.status %></p>
+    </div>
+    <div class="company_details mb-5">
+      <h2>Feedback de l'entretien</h2>
+      <% if interview.feedback %>
+        <p><strong>💼 Score:</strong> <%= interview.feedback.score %></p>
+        <p><strong>ℹ️ Commentaire:</strong> <%= interview.feedback.comment %></p>
+      <% else %>
+        <p>Aucun feedback disponible pour cet entretien.</p>
+      <% end %>
+    </div>
+  </div>
+<% end %>

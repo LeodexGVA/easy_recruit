@@ -12,6 +12,10 @@ Rails.application.routes.draw do
     resources :job_offers, only: [:show, :index, :edit, :update, :destroy]
   end
   resources :job_offers
-  
+
+  resources :interviews, only: [:show, :index, :edit, :update, :destroy] do
+    resources :feedbacks, only: [:new, :create]
+  end
+
   resources :time_slots
 end

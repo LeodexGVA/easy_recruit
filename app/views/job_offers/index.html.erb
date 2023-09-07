@@ -1,5 +1,4 @@
 <div class="container">
-
   <div class="card">
     <h5 class="card-header text-center">Liste des offres d'emplois</h5>
     <div class="table-responsive text-nowrap">
@@ -16,12 +15,11 @@
         <tbody class="table-border-bottom-0">
           <% @job_offers.each do |job_offer| %>
             <tr>
-              <td>
-                <a href="<%= job_offer_path(job_offer)%>">
-                  <strong><%= job_offer.company.name %></strong>
-                </a>
+              <td><strong><%= job_offer.company.name %></strong>
               </td>
-              <td><%= job_offer.title %></td>
+              <td>
+                <a href="<%= job_offer_path(job_offer)%>"><%= job_offer.title %></a>
+              </td>
               <td><%= job_offer.description %></td>
               <td><%= job_offer.industry %></td>
               <td>

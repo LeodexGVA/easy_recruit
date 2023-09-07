@@ -10,7 +10,7 @@ class InterviewPolicy < ApplicationPolicy
       end
     end
   end
-  
+
   def index?
     # tous le monde peut voir les offres d'emploi
     true

@@ -32,6 +32,24 @@
         </div>
       <% end %>
     <% end %>
-
   </div>
+<%# Liste des entretiens lié a une offre %>
+<div class="entretiens_details mb-5">
+  <h2>Entretiens</h2>
+  <% if @interviews.empty? %>
+    <p>Pas encore d'entretien pour votre offre !</p>
+  <% else %>
+    <% @interviews.each do |interview| %>
+      <div class="col-md-4 col-sm-6 mb-4">
+        <div class="card" data-aos="zoom-in">
+          <div class="card-body">
+            <%= interview.status %>
+            <% candidature = interview.time_slot.candidature %>
+            <p><strong>Candidat:</strong> <%= candidature.user.first_name %> <%= candidature.user.last_name %></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
 </div>
+

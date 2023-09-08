@@ -2,9 +2,9 @@
   <h1>Candidatures pour l'offre</h1>
 
   <!-- Formulaire pour gérer les candidatures sélectionnées -->
-  <%= form_tag new_time_slot_path, method: :post do %>
-    <% @candidatures.each do |candidature| %>
-      <div class="col-md-4 col-sm-6 mb-4">
+  <%= form_tag new_time_slot_path, method: :get do %>
+    <div class="col-md-4 col-sm-6 mb-4">
+      <% @candidatures.each do |candidature| %>
         <div class="card" data-aos="zoom-in">
           <div class="card-body">
             <%= check_box_tag "selected_candidatures[]", candidature.id, false, class: "candidature-checkbox" %>
@@ -13,9 +13,9 @@
             <%= render "show_modal", candidature: candidature %>
           </div>
         </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
     <!-- Bouton pour passer à l'étape suivante -->
-    <%= submit_tag "Suivante", class: "btn btn-primary" %>
+    <%= submit_tag "Etape suivante", class: "btn btn-primary" %>
   <% end %>
 </div>

@@ -1,6 +1,3 @@
-<h1>EasyRecruit</h1>
-<p>Site en construction, revenez donc plus tard...</p>
-
 <div class="container my-5">
   <div class="container mb-5 d-flex flex-row justify-content-between">
     <div style="background-color: #fff; border: 5px; border-radius: 10px; box-shadow: 2px 2px 5px #888888; padding: 20px">
@@ -8,23 +5,21 @@
       <table class="table">
         <thead>
           <tr>
-            <th scope="col">En-tête 1</th>
-            <th scope="col">En-tête 2</th>
-            <th scope="col">En-tête 3</th>
+            <th>Entreprise</th>
+            <th>Titre de l'annonce</th>
+            <th>Description</th>
           </tr>
         </thead>
-        <tbody>
-          <tr>
-            <td>Donnée 1</td>
-            <td>Donnée 2</td>
-            <td>Donnée 3</td>
-          </tr>
-          <tr>
-            <td>Donnée 4</td>
-            <td>Donnée 5</td>
-            <td>Donnée 6</td>
-          </tr>
-        </tbody>
+          <% @job_offers.each do |job_offer| %>
+            <tr>
+              <td><strong><%= job_offer.company.name %></strong>
+              </td>
+              <td>
+                <a href="<%= job_offer_path(job_offer)%>"><%= job_offer.title %></a>
+              </td>
+              <td><%= job_offer.description %></td>
+            </tr>
+          <% end %>
       </table>
       <div class="text-center">
         <%= link_to "Créer offre d'emploi", new_job_offer_path, class: "btn btn-primary" %>

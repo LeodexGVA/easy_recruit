@@ -26,7 +26,7 @@ class InterviewsController < ApplicationController
   def show
     @feedback = Feedback.new
     @interview = Interview.find(params[:id]) # on récupère la candidature
-    @user = current_user
+    @user = @interview.user
     @time_slot = @interview.time_slot # on récupère le status de l'interview
     @feedbacks = @interview.feedbacks # on récupère les feedbacks de l'interview
     authorize @interview # vérifie l'autorisation avec Pundit

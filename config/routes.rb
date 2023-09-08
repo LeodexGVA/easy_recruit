@@ -17,6 +17,7 @@ Rails.application.routes.draw do
     resources :job_offers, only: [:index, :new, :create]
   end
 
+
   resources :job_offers
 
   resources :interviews, only: [:show, :index, :edit, :update, :destroy] do

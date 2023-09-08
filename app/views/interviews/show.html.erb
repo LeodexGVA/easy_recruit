@@ -1,5 +1,5 @@
 <div class="container my-5">
-  <h1 class="mb-5">Entretien de <%= @user.last_name.capitalize %></h1>
+  <h1 class="mb-5">Entretien créé par <%= @user.first_name.capitalize %> <%= @user.last_name.capitalize %></h1>
   <div class="job_offer_details mb-5">
     <h2>Informations</h2>
     <p><strong>ℹ️ Date:</strong> <%= @time_slot.date %></p>

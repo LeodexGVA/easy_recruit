@@ -3,7 +3,7 @@ import flatpickr from "flatpickr"; // You need to import this to use new flatpic
 
 export default class extends Controller {
   connect() {
-    const datePickerElement = document.getElementById("datepicker-input"); // Remplacez "datepicker-input" par le bon ID de votre champ de date
+    const datePickerElement = document.getElementsByClassName("datepicker-input"); // Remplacez "datepicker-input" par le bon ID de votre champ de date
     if (datePickerElement) {
       flatpickr(datePickerElement, {
         dateFormat: "Y-m-d", // Format pour afficher la date au format YYYY-MM-DD

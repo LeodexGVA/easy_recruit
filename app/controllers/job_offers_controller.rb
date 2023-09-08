@@ -16,9 +16,8 @@ class JobOffersController < ApplicationController
     @job_offer.company = current_user.company # l'utilisateur courant est le recruteur
     authorize @job_offer # vérifie l'autorisation avec Pundit
 
-
     if @job_offer.save
-      redirect_to company_job_offers_path
+      redirect_to company_job_offers_path(current_user.company)
     else
       render :new, status: :unprocessable_entity
     end
@@ -43,6 +42,7 @@ class JobOffersController < ApplicationController
     @job_offer = JobOffer.find(params[:id]) # on récupère l'offre d'emploi
     @company = @job_offer.company # on récupère l'entreprise qui a posté l'offre d'emploi
     @candidatures = @job_offer.candidatures # on récupère les candidatures de l'offre d'emploi
+    @time_slots = @job_offer.time_slots # on récupère les créneaux horaires de l'offre d'emploi
     @interviews = @job_offer.interviews # Assurez-vous que cette ligne est présente pour récupérer les entretiens.
     authorize @job_offer # vérifie l'autorisation avec Pundit
   end

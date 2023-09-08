@@ -14,9 +14,9 @@
           <%= f.input :description, label: 'Description' %>
           <!-- <%= f.input :images, as: :file, label: 'Images', input_html: { multiple: true } %> -->
           <!-- Champ de date de début -->
-          <%= f.input :start_date, as: :string, label: 'Date de début', input_html: { data: { controller: 'datepicker' } }%>
+          <%= f.input :start_date, as: :string, label: 'Date de début', input_html: { data: { controller: 'datepicker' }, class: 'datepicker-input' }%>
           <!-- Champ de date de fin -->
-          <%= f.input :end_date, as: :string, label: 'Date de fin', input_html: { data: { controller: 'datepicker' } } %>
+          <%= f.input :end_date, as: :string, label: 'Date de fin', input_html: { data: { controller: 'datepicker' }, class: 'datepicker-input' } %>
         </div>
 
         <div class="form-actions text-center mt-4">

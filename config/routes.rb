@@ -15,10 +15,10 @@ Rails.application.routes.draw do
   resources :candidatures, only: [:destroy]
 
   resources :companies, only: [] do
-    resources :job_offers, only: [:index, :new, :create]
+    resources :job_offers, only: [:index]
   end
 
-  resources :job_offers, except: [:new, :create]
+  resources :job_offers, except: [:index]
 
   resources :interviews, only: [:show, :index, :edit, :update, :destroy] do
     resources :feedbacks, only: [:new, :create, :update]

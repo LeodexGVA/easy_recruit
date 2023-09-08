@@ -6,6 +6,7 @@ class JobOffersController < ApplicationController
 
   def new
     @job_offer = JobOffer.new
+    @company = current_user.company # l'utilisateur courant est le recruteur
     authorize @job_offer # vérifie l'autorisation avec Pundit
   end
 

@@ -9,6 +9,7 @@ class TimeSlotsController < ApplicationController
   def create
     @selected_candidatures_ids = params[:selected_candidatures]
     @selected_candidatures = Candidature.where(id: @selected_candidatures_ids)
+    @job_offer = @selected_candidatures.first.job_offer
 
     # Utilisez une variable pour suivre si la création de tous les créneaux horaires a réussi
     all_time_slots_created = true
@@ -27,7 +28,7 @@ class TimeSlotsController < ApplicationController
 
     if all_time_slots_created
       # Si tous les créneaux horaires ont été créés avec succès, redirigez
-      redirect_to root_path
+      redirect_to job_offer_path(@job_offer)
       flash[:notice] = "Proposition d'entretien envoyée au(x) candidat(s) sélectioné(s) !"
     else
       # Gérez les erreurs de validation, le cas échéant

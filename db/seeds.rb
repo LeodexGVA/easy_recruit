@@ -187,9 +187,9 @@ time_slot_test1 = TimeSlot.create(
 time_slot_test2 = TimeSlot.create(
   date: Date.tomorrow, time: Time.now, candidature: candidature_test4, status: "Accepted"
 )
-time_slot_test3 = TimeSlot.create(
-  date: Date.tomorrow, time: Time.now, candidature: candidature_test7, status: "Accepted"
-)
+# time_slot_test3 = TimeSlot.create(
+#   date: Date.tomorrow, time: Time.now, candidature: candidature_test7, status: "Accepted"
+# )
 time_slot_test4 = TimeSlot.create(
   date: Date.tomorrow, time: Time.now, candidature: candidature_test8, status: "Accepted"
 )
@@ -204,9 +204,9 @@ puts "interview test"
 interview_test1 = Interview.create(
   time_slot: time_slot_test2, status: "Done", user: user_recruiter
 )
-interview_test2 = Interview.create(
-  time_slot: time_slot_test3, status: "Upcoming", user: user_recruiter
-)
+# interview_test2 = Interview.create(
+#   time_slot: time_slot_test3, status: "Upcoming", user: user_recruiter
+# )
 interview_test3 = Interview.create(
   time_slot: time_slot_test4, status: "Done", user: user_recruiter
 )
@@ -247,12 +247,12 @@ puts candidature_test9.errors.full_messages
 puts candidature_test10.errors.full_messages
 puts time_slot_test1.errors.full_messages
 puts time_slot_test2.errors.full_messages
-puts time_slot_test3.errors.full_messages
+# puts time_slot_test3.errors.full_messages
 puts time_slot_test4.errors.full_messages
 puts time_slot_test5.errors.full_messages
 puts time_slot_test6.errors.full_messages
 puts interview_test1.errors.full_messages
-puts interview_test2.errors.full_messages
+# puts interview_test2.errors.full_messages
 puts interview_test3.errors.full_messages
 puts feedback_test1.errors.full_messages
 puts feedback_test2.errors.full_messages

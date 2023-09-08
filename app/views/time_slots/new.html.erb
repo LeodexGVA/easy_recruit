@@ -24,7 +24,7 @@
           <% if @selected_candidatures_ids.nil? %>
             <p>Aucune candidature sélectionnée.</p>
           <% else %>
-            <p>IDs des candidatures sélectionnées :</p>
+            <p>Candidatures retenues :</p>
             <ul>
               <% @selected_candidatures.each do |candidature| %>
                 <%= check_box_tag "selected_candidatures[]", candidature.id, true, class: "candidature-checkbox" %>

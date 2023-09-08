@@ -24,5 +24,5 @@ Rails.application.routes.draw do
     resources :feedbacks, only: [:new, :create, :update]
   end
 
-  resources :time_slots
+  resources :time_slots, only: [:index, :new, :create, :show, :edit, :update, :destroy]
 end

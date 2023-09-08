@@ -7,7 +7,17 @@ class CandidaturePolicy < ApplicationPolicy
   end
 
   def index?
-    # tous le monde peut voir les offres d'emploi
+    # tous le monde peut voir les candidatures
     true
+  end
+
+  # Seulement les recruteurs peuvent modifier une candidature
+  def update?
+    user.recruiter? || user.admin?
+  end
+
+  # Seulement les recruteurs peuvent supprimer une candidature
+  def destroy?
+    user.recruiter? || user.admin?
   end
 end

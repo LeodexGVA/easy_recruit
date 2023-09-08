@@ -5,19 +5,20 @@ Rails.application.routes.draw do
   root to: "pages#home"
 
   resources :job_offers, only: [] do
-    resources :interviews, only: [:show, :index, :edit, :update, :destroy]
+    resources :interviews, only: [:show, :index, :edit, :update]
   end
 
   resources :job_offers, only: [] do
-    resources :candidatures
+    resources :candidatures, except: [:destroy]
   end
 
+  resources :candidatures, only: [:destroy]
 
   resources :companies, only: [] do
     resources :job_offers, only: [:index, :new, :create]
   end
 
-resources :job_offers
+  resources :job_offers, except: [:new, :create]
 
   resources :interviews, only: [:show, :index, :edit, :update, :destroy] do
     resources :feedbacks, only: [:new, :create, :update]

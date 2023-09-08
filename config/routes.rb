@@ -14,14 +14,15 @@ Rails.application.routes.draw do
 
 
   resources :companies, only: [] do
-    resources :job_offers, only: [:index]
+    resources :job_offers, only: [:index, :new, :create]
   end
 
-resources :job_offers, only: [:new, :create, :show, :edit, :update, :destroy]
+
+  resources :job_offers
 
   resources :interviews, only: [:show, :index, :edit, :update, :destroy] do
     resources :feedbacks, only: [:new, :create, :update]
   end
 
-  resources :time_slots
+  resources :time_slots, only: [:index, :new, :create, :show, :edit, :update, :destroy]
 end

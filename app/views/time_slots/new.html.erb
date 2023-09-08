@@ -14,8 +14,8 @@
     <% end %>
   </div>
   <!-- Formulaire new time_slot -->
-  <div class="row justify-content-center">
-    <div class="col-md-6">
+  <div class="row justify-content-flex-start">
+    <div class="col-md-4">
       <%= simple_form_for(@time_slot, html: { class: 'custom-form' }) do |f| %>
         <%= f.error_notification %>
         <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
@@ -39,7 +39,7 @@
           <%= f.input :time, as: :string, label: 'Heure', input_html: { data: { controller: 'datepicker' }, id: 'timepicker-input' } %>
         </div>
 
-        <div class="form-actions text-center mt-4">
+        <div class="form-actions mt-4">
           <%= f.button :submit, class: 'btn btn-primary mb-2'%>
         </div>
       <% end %>

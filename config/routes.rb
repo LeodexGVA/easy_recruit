@@ -17,7 +17,7 @@ Rails.application.routes.draw do
     resources :job_offers, only: [:index]
   end
 
-resources :job_offers, only: [:show, :edit, :update, :destroy]
+resources :job_offers, only: [:new, :create, :show, :edit, :update, :destroy]
 
   resources :interviews, only: [:show, :index, :edit, :update, :destroy] do
     resources :feedbacks, only: [:new, :create, :update]

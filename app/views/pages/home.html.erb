@@ -1,2 +1,78 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<h1>EasyRecruit</h1>
+<p>Site en construction, revenez donc plus tard...</p>
+
+<div class="container my-5">
+  <div class="container mb-5 d-flex flex-row justify-content-between">
+    <div style="background-color: #fff; border: 5px; border-radius: 10px; box-shadow: 2px 2px 5px #888888; padding: 20px">
+    <h2>Offres emplois</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">En-tête 1</th>
+            <th scope="col">En-tête 2</th>
+            <th scope="col">En-tête 3</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Donnée 1</td>
+            <td>Donnée 2</td>
+            <td>Donnée 3</td>
+          </tr>
+          <tr>
+            <td>Donnée 4</td>
+            <td>Donnée 5</td>
+            <td>Donnée 6</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="text-center">
+        <%= link_to "Créer offre d'emploi", new_job_offer_path, class: "btn btn-primary" %>
+      </div>
+    </div>
+    <div style="background-color: #fff; border: 5px; border-radius: 10px; box-shadow: 2px 2px 5px #888888; padding: 20px">
+      <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-file-earmark-person-fill" viewBox="0 0 16 16">
+        <path d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0zM9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1zM11 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0zm2 5.755V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-.245S4 12 8 12s5 1.755 5 1.755z"/>
+      </svg>
+      <h1 class="text-center" style="color: blue;">16</h1>
+      <p>entretiens passés</p>
+    </div>
+
+    <div style="background-color: #fff; border: 5px; border-radius: 10px; box-shadow: 2px 2px 5px #888888; padding: 20px">
+      <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="#FF0000" class="bi bi-person-workspace" viewBox="0 0 16 16">
+        <path d="M4 16s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H4Zm4-5.95a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z"/>
+        <path d="M2 1a2 2 0 0 0-2 2v9.5A1.5 1.5 0 0 0 1.5 14h.653a5.373 5.373 0 0 1 1.066-2H1V3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v9h-2.219c.554.654.89 1.373 1.066 2h.653a1.5 1.5 0 0 0 1.5-1.5V3a2 2 0 0 0-2-2H2Z"/>
+      </svg>
+      <br>
+      <h1 class="text-center" style="color: blue;">8</h1>
+      <p>offres d'emploi publiées</p>
+    </div>
+  </div>
+
+  <div class="container my-5">
+    <div style="background-color: #fff; border: 5px; border-radius: 10px; box-shadow: 2px 2px 5px #888888; padding: 20px">
+      <p>bah on peut mettre les offres/entretiens/candidature, jepo</p>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col" class="text-center">En-tête 1</th>
+            <th scope="col" class="text-center">En-tête 2</th>
+            <th scope="col" class="text-center">En-tête 3</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="text-center">Donnée 1</td>
+            <td class="text-center">Donnée 2</td>
+            <td class="text-center">Donnée 3</td>
+          </tr>
+          <tr>
+            <td class="text-center">Donnée 4</td>
+            <td class="text-center">Donnée 5</td>
+            <td class="text-center">Donnée 6</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

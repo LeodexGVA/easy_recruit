@@ -11,7 +11,6 @@ class InterviewsController < ApplicationController
 
   def create
     @interview = Interview.new(job_offer_params)
-
     @interview.user = current_user # l'utilisateur courant est le recruteur
     authorize @interview # vérifie l'autorisation avec Pundit
 

@@ -17,7 +17,7 @@ class JobOffersController < ApplicationController
 
 
     if @job_offer.save
-      redirect_to company_job_offer_path
+      redirect_to company_job_offers_path
     else
       render :new, status: :unprocessable_entity
     end
@@ -48,8 +48,8 @@ class JobOffersController < ApplicationController
 
   def destroy
     @job_offer = JobOffer.find(params[:id])
-    authorize @job_offer # vérifie l'autorisation avec Pundit
     @job_offer.destroy
+    authorize @job_offer # vérifie l'autorisation avec Pundit
     redirect_to job_offers_path # on redirige vers la liste des offres d'emploi
   end
 

@@ -16,9 +16,9 @@
   <!-- Formulaire new time_slot -->
   <div class="row justify-content-flex-start">
     <div class="col-md-4">
-      <%= simple_form_for(@time_slot, html: { class: 'custom-form' }) do |f| %>
-        <%= f.error_notification %>
-        <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+      <%= form_tag(time_slots_path, method: :post, html: { class: 'custom-form' }) do %>
+        <%# <%= f.error_notification %>
+        <%# <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
         <!-- Section candidature(s) sélectionné(s) -->
         <div class="selected-candidates">
           <% if @selected_candidatures_ids.nil? %>
@@ -31,8 +31,12 @@
                 <%= candidature.user.first_name %> <%= candidature.user.last_name %>
                 <!-- Formulaire new time_slot -->
                 <div class="form-inputs">
-                  <%= f.input :date, as: :string, label: 'Date', input_html: { data: { controller: 'datepicker' }, class: 'datepicker-input' } %>
-                  <%= f.input :time, as: :string, label: 'Heure', input_html: { data: { controller: 'datepicker' }, class: 'timepicker-input' } %>
+                  <label for="date-<%= candidature.id %>">Date:</label>
+                  <%= date_field_tag "date-#{candidature.id}", as: :string, label: 'Date', input_html: { data: { controller: 'datepicker' }, class: 'datepicker-input' } %>
+                </div>
+                <div class="form-inputs">
+                  <label for="date-<%= candidature.id %>">Heure:</label>
+                  <%= time_field_tag "time-#{candidature.id}", as: :string, label: 'Heure', input_html: { data: { controller: 'datepicker' }, class: 'timepicker-input' } %>
                 </div>
               <% end %>
             </div>
@@ -40,7 +44,7 @@
         </div>
 
         <div class="form-actions mt-4">
-          <%= f.button :submit, class: 'btn btn-primary mb-2'%>
+          <%= submit_tag :submit, class: 'btn btn-primary mb-2'%>
         </div>
       <% end %>
     </div>

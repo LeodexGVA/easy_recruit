@@ -139,13 +139,13 @@ company_test = Company.create(
 puts "creating job offer test"
 # Créer des offre lié par companies
 job_offer_test1 = JobOffer.create(
-  title: "fullstack dev", description: "Job en or !", industry: "IT", address: "Genève", skills: "Ruby on rails", requirements: "Master", contract_type: "Full-time", start_date: Date.today, end_date: Date.tomorrow, company: company_test
+  title: "fullstack dev", description: "Job en or !", address: "Genève", skills: "Ruby on rails", requirements: "Master", contract_type: "CDI", start_date: Date.today, end_date: Date.tomorrow, company: company_test, salaire: "25000"
 )
 job_offer_test2 = JobOffer.create(
-  title: "Chef de projet", description: "Job en or !", industry: "IT", address: "Genève", skills: "Ruby on rails", requirements: "Master", contract_type: "Full-time", start_date: Date.today, end_date: Date.tomorrow, company: company_test
+  title: "Chef de projet", description: "Job en or !", address: "Genève", skills: "Ruby on rails", requirements: "Master", contract_type: "CDD", start_date: Date.today, end_date: Date.tomorrow, company: company_test, salaire: "30000"
 )
 job_offer_test3 = JobOffer.create(
-  title: "Full front-end", description: "Job en or !", industry: "IT", address: "Genève", skills: "Ruby on rails", requirements: "Master", contract_type: "Full-time", start_date: Date.today, end_date: Date.tomorrow, company: company_test
+  title: "Full front-end", description: "Job en or !", address: "Genève", skills: "Ruby on rails", requirements: "Master", contract_type: "Intérim", start_date: Date.today, end_date: Date.tomorrow, company: company_test, salaire: "45000"
 )
 puts "creating candidature test"
 # Créer des candidatures qui sont lié a une offre d'emploi et a un user candidat

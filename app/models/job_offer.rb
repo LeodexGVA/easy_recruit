@@ -8,12 +8,13 @@ class JobOffer < ApplicationRecord
   # Validations
   validates :title, presence: true, length: { minimum: 5 }
   validates :description, presence: true, length: { minimum: 10 }
-  validates :industry, presence: true, inclusion: { in: %w[IT Finance Marketing Other] }
   validates :address, presence: true
   validates :skills, presence: true
   validates :requirements, presence: true
-  validates :contract_type, presence: true, inclusion: { in: %w[Full-time Part-time] }
+  validates :contract_type, presence: true, inclusion: { in: %w[CDI CDD Intérim] }
   validates :start_date, presence: true
+  # validates :deadline, presence: true
+  # validates :salaire, presence: true
   validates :end_date, presence: true
   validate :end_date_after_start_date?
 

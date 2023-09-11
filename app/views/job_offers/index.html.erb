@@ -8,7 +8,6 @@
             <th>Entreprise</th>
             <th>Titre de l'annonce</th>
             <th>Description</th>
-            <th>Industry</th>
             <th>Actions</th>
           </tr>
         </thead>
@@ -18,7 +17,6 @@
               <td><strong><%= job_offer.company.name %></strong></td>
               <td><a href="<%= job_offer_path(job_offer) %>"><%= job_offer.title %></a></td>
               <td><%= job_offer.description %></td>
-              <td><%= job_offer.industry %></td>
               <td>
                 <div class="btn-group">
                   <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">

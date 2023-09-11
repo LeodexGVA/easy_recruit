@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     resources :candidatures, except: [:destroy]
   end
 
-  resources :candidatures, only: [:destroy]
+  resources :candidatures, only: [:show, :index, :destroy]
 
   resources :companies, only: [] do
     resources :job_offers, only: [:index]

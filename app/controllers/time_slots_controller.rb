@@ -36,6 +36,11 @@ class TimeSlotsController < ApplicationController
     end
   end
 
+  def show
+    @time_slot = TimeSlot.find(params[:id])
+    authorize @time_slot
+  end
+
   private
 
   def time_slot_params

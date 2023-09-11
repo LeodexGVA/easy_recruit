@@ -13,11 +13,20 @@ class CandidaturePolicy < ApplicationPolicy
 
   # Seulement les recruteurs peuvent modifier une candidature
   def update?
-    user.recruiter? || user.admin?
+    true
+  end
+
+  def show?
+    # tous le monde peut voir une candidature
+    true
   end
 
   # Seulement les recruteurs peuvent supprimer une candidature
   def destroy?
     user.recruiter? || user.admin?
+  end
+
+  def create?
+    user.candidate? || user.admin?
   end
 end

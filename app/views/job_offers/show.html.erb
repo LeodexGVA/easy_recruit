@@ -2,31 +2,38 @@
     <h1 class="mb-5 text-center"><%= @job_offer.title.capitalize %></h1>
   <div class="d-flex justify-content-evenly">
     <%# Liste des attributs d'l'offre %>
-    <div class="job_offer_details mb-5 offer-card w-50">
-      <h2>Détails de l'offre</h2>
-      <p><strong>ℹ️ Description:</strong> <%= @job_offer.description %></p>
-      <p><strong>📍 Adresse:</strong> <%= @job_offer.address %></p>
-      <p><strong>⭐️ Compétences:</strong> <%= @job_offer.skills %></p>
-      <p><strong>🎓 Prérequis:</strong> <%= @job_offer.requirements %></p>
-      <p><strong>📑 Type de contrat:</strong> <%= @job_offer.contract_type %></p>
-      <p><strong>📅 Dates:</strong> Du <%= @job_offer.start_date %> au <%= @job_offer.end_date %></p>
+    <div class="card mb-5 mt-5">
+      <div class="card-header">
+        <h2>Détails de l'offre</h2>
+      </div>
+      <div class="card-body">
+        <p><strong>ℹ️ Description:</strong> <%= @job_offer.description %></p>
+        <p><strong>📍 Adresse:</strong> <%= @job_offer.address %></p>
+        <p><strong>⭐️ Compétences:</strong> <%= @job_offer.skills %></p>
+        <p><strong>🎓 Prérequis:</strong> <%= @job_offer.requirements %></p>
+        <p><strong>📑 Type de contrat:</strong> <%= @job_offer.contract_type %></p>
+        <p><strong>📅 Dates:</strong> Du <%= @job_offer.start_date %> au <%= @job_offer.end_date %></p>
+      </div>
     </div>
     <%# Liste des attributs de l'entreprise liée à l'offre %>
-    <div class="company_details mb-5 text-center offer-card w-50">
-      <h2>En savoir plus sur <strong><%= @company.name.capitalize %></strong></h2>
-      <p><strong>💼 Secteur:</strong> <%= @company.industry %></p>
-      <p><strong>ℹ️ Description:</strong> <%= @company.description %></p>
-      <p><strong>📍 Adresse:</strong> <%= @company.address %></p>
-      <p><strong>📧 Email:</strong> <%= @company.email %></p>
-      <p><strong>📞 Téléphone:</strong> <%= @company.phone %></p>
+    <div class="card mb-5 mt-5">
+      <div class="card-header">
+        <h2>En savoir plus sur <strong><%= @company.name.capitalize %></strong></h2>
+      </div>
+        <div class="card-body">
+          <p><strong>💼 Secteur:</strong> <%= @company.industry %></p>
+          <p><strong>ℹ️ Description:</strong> <%= @company.description %></p>
+          <p><strong>📍 Adresse:</strong> <%= @company.address %></p>
+          <p><strong>📧 Email:</strong> <%= @company.email %></p>
+          <p><strong>📞 Téléphone:</strong> <%= @company.phone %></p>
+        </div>
     </div>
   </div>
   <%# Lien vers l'index des candidatures lié à l'offre %>
-
   <%# Liste des candidatures lié à l'offre %>
   <div class="">
     <div class="card">
-      <h2 class="card-header text-center">Candidatures</h2>
+      <div class="card-header"><h2>Candidatures</h2></div>
       <div class="table-responsive text-nowrap mb-4">
         <table class="table table-hover">
           <thead>
@@ -66,14 +73,14 @@
 
 
   <%# Liste des entretiens lié à l'offre %>
-  <div class="entretiens_details mb-5 mt-5">
-   <%= link_to "Créer un entretien", job_offer_candidatures_path(@job_offer), class: "btn btn-primary rounded-4 mb-3" %>
-    <h2>Entretiens à venir</h2>
+  <div class="card mb-5 mt-5">
+    <div class="card-header"><h2>Entretiens à venir</h2></div>
+   <div class="text-end"><%= link_to "Créer un entretien", job_offer_candidatures_path(@job_offer), class: "btn btn-primary rounded-4 mb-3" %></div>
     <div class="cards row">
 
       <% @time_slots.each do |time_slot| %>
         <div class="col-md-4 col-sm-6 mb-4">
-          <div class="offer-card" data-aos="zoom-in">
+          <div class="card" data-aos="zoom-in">
             <div class="card-body">
               <%= time_slot.status %>
               <% candidature = time_slot.candidature %>

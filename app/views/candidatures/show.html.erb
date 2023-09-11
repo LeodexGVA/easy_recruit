@@ -1,0 +1,17 @@
+<h1 class="mb-5">Candidature de : <%= @candidature.user.first_name %> <%= @candidature.user.last_name %></h1>
+<div class="job_offer_details mb-5">
+  <h2>Informations</h2>
+  <% @candidature.time_slots.each do |time_slot| %>
+    <p><strong>ℹ️ Date:</strong> <%= time_slot.date %></p>
+    <p><strong>📍 Time:</strong> <%= time_slot.time %></p>
+    <p><strong>⭐️ Status:</strong> <%= time_slot.status %></p>
+  <% end %>
+</div>
+
+<h2>Liste des entretiens</h5>
+<% @interviews.each do |interview| %>
+  <div>
+    <%= @job_offer.title  %>
+    <%= interview.status %>
+  </div>
+<% end %>

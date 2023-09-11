@@ -4,8 +4,17 @@ class CandidaturesController < ApplicationController
     # Candidatures relative à une offre d'emploi spécifique
     @candidatures = Candidature.where(job_offer_id: params[:job_offer_id])
   end
-  
-   def create
+
+  def show
+    @candidature = Candidature.find(params[:id])
+    @time_slot = @candidature.time_slots.first # Utilise .first pour obtenir un seul créneau horaire
+    @interviews = @time_slot.interviews if @time_slot # Vérifie si le créneau horaire existe
+    @job_offer = @candidature.job_offer # on récupère l'offre d'emploi
+
+    authorize @candidature # Vérifie l'autorisation avec Pundit
+  end
+
+  def create
     # Accédez aux IDs des candidatures sélectionnées dans le formulaire
     @selected_candidatures_ids = params[:selected_candidatures]
     authorize @selected_candidatures_ids # vérifie l'autorisation avec Pundit

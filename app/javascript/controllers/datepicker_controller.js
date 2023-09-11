@@ -10,7 +10,7 @@ export default class extends Controller {
       });
     }
 
-    const timePickerElement = document.getElementById("timepicker-input"); // Remplacez "timepicker-input" par le bon ID de votre champ d'heure
+    const timePickerElement = document.getElementsByClassName("timepicker-input"); // Remplacez "timepicker-input" par le bon ID de votre champ d'heure
     if (timePickerElement) {
       flatpickr(timePickerElement, {
         enableTime: true, // Activez la sélection de l'heure

@@ -11,27 +11,27 @@ class TimeSlotsController < ApplicationController
     @selected_candidatures = Candidature.where(id: @selected_candidatures_ids)
     @job_offer = @selected_candidatures.first.job_offer
 
-    # Utilisez une variable pour suivre si la création de tous les créneaux horaires a réussi
+    # Variable pour suivre si la création de tous les créneaux horaires a réussi
     all_time_slots_created = true
 
     @selected_candidatures_ids.each do |candidature_id|
       time_slot = TimeSlot.new(time_slot_params)
       time_slot.candidature_id = candidature_id.to_i
-      time_slot.status = "Pending" # Assurez-vous de définir le statut approprié ici
+      time_slot.status = "Pending"
       authorize time_slot
 
       unless time_slot.save
-        # Si la sauvegarde échoue pour l'une des candidatures, marquez l'opération comme échouée
+        # Si la sauvegarde échoue pour l'une des candidatures alors on passe la variable à false
         all_time_slots_created = false
       end
     end
 
     if all_time_slots_created
-      # Si tous les créneaux horaires ont été créés avec succès, redirigez
+      # Redirection si succès
       redirect_to job_offer_path(@job_offer)
       flash[:notice] = "Proposition d'entretien envoyée au(x) candidat(s) sélectioné(s) !"
     else
-      # Gérez les erreurs de validation, le cas échéant
+      # Redirection si échec
       render :new, status: :unprocessable_entity
     end
   end

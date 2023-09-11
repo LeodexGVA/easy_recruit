@@ -29,14 +29,14 @@
               <% @selected_candidatures.each do |candidature| %>
                 <%= check_box_tag "selected_candidatures[]", candidature.id, true, class: "candidature-checkbox" %>
                 <%= candidature.user.first_name %> <%= candidature.user.last_name %>
+                <!-- Formulaire new time_slot -->
+                <div class="form-inputs">
+                  <%= f.input :date, as: :string, label: 'Date', input_html: { data: { controller: 'datepicker' }, class: 'datepicker-input' } %>
+                  <%= f.input :time, as: :string, label: 'Heure', input_html: { data: { controller: 'datepicker' }, class: 'timepicker-input' } %>
+                </div>
               <% end %>
             </div>
           <% end %>
-        </div>
-        <!-- Formulaire new time_slot -->
-        <div class="form-inputs">
-          <%= f.input :date, as: :string, label: 'Date', input_html: { data: { controller: 'datepicker' }, class: 'datepicker-input' } %>
-          <%= f.input :time, as: :string, label: 'Heure', input_html: { data: { controller: 'datepicker' }, id: 'timepicker-input' } %>
         </div>
 
         <div class="form-actions mt-4">

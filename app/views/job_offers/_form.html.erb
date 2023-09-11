@@ -6,8 +6,7 @@
         <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
         <div class="form-inputs">
           <%= f.input :title, label: "Titre de l'emploi" %>
-          <%= f.select :industry, %w[IT Finance Marketing Other], { include_blank: "Sélectionner le secteur d'emploi" } %>
-          <%= f.select :contract_type, %w[Full-time Part-time], { include_blank: "Sélectionner le type de contrat" } %>
+          <%= f.select :contract_type, %w[CDI CDD Intérim], { include_blank: "Sélectionner le type de contrat" } %>
           <%= f.input :address, label: 'Adresse' %>
           <%= f.input :skills, label: 'Skills' %>
           <%= f.input :requirements, label: 'Requirements' %>
@@ -17,6 +16,8 @@
           <%= f.input :start_date, as: :string, label: 'Date de début', input_html: { data: { controller: 'datepicker' }, class: 'datepicker-input' }%>
           <!-- Champ de date de fin -->
           <%= f.input :end_date, as: :string, label: 'Date de fin', input_html: { data: { controller: 'datepicker' }, class: 'datepicker-input' } %>
+          <%= f.input :end_date, as: :string, label: 'Deadline', input_html: { data: { controller: 'datepicker' }, class: 'datepicker-input' } %>
+
         </div>
 
         <div class="form-actions text-center mt-4">

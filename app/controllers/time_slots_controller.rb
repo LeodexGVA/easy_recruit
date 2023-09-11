@@ -17,7 +17,7 @@ class TimeSlotsController < ApplicationController
     @selected_candidatures.each do |candidature|
       time_slot = TimeSlot.new(time_slot_params)
 
-      # Associez la date et l'heure en utilisant l'ID de la candidature comme suffixe
+      # Associe la date et l'heure en utilisant l'ID de la candidature
       date_param = params["date-#{candidature.id}"]
       time_param = params["time-#{candidature.id}"]
 

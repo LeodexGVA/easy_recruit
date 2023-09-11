@@ -64,7 +64,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_11_084245) do
     t.string "address"
     t.string "skills"
     t.string "requirements"
-    t.string "contract_type", default: "CDI"
+    t.string "contract_type"
     t.date "start_date"
     t.date "end_date"
     t.bigint "company_id", null: false

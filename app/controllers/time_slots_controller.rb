@@ -14,9 +14,17 @@ class TimeSlotsController < ApplicationController
     # Variable pour suivre si la création de tous les créneaux horaires a réussi
     all_time_slots_created = true
 
-    @selected_candidatures_ids.each do |candidature_id|
+    @selected_candidatures.each do |candidature|
       time_slot = TimeSlot.new(time_slot_params)
-      time_slot.candidature_id = candidature_id.to_i
+
+      # Associez la date et l'heure en utilisant l'ID de la candidature comme suffixe
+      date_param = params["date-#{candidature.id}"]
+      time_param = params["time-#{candidature.id}"]
+
+      time_slot.date = date_param
+      time_slot.time = time_param
+
+      time_slot.candidature_id = candidature.id
       time_slot.status = "Pending"
       authorize time_slot
 
@@ -29,7 +37,7 @@ class TimeSlotsController < ApplicationController
     if all_time_slots_created
       # Redirection si succès
       redirect_to job_offer_path(@job_offer)
-      flash[:notice] = "Proposition d'entretien envoyée au(x) candidat(s) sélectioné(s) !"
+      flash[:notice] = "Proposition d'entretien envoyée au(x) candidat(s) sélectionné(s) !"
     else
       # Redirection si échec
       render :new, status: :unprocessable_entity
@@ -44,6 +52,6 @@ class TimeSlotsController < ApplicationController
   private
 
   def time_slot_params
-    params.require(:time_slot).permit(:date, :time)
+    params.permit(:date, :time)
   end
 end

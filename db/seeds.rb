@@ -1,10 +1,12 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
+# require 'cloudinary'
+require "open-uri"
+# # Config Cloudinary
+Cloudinary.config do |config|
+  config.cloud_name = 'dwlskew13'
+  config.api_key = '336736776289989'
+  config.api_secret = 'Q-vTcA7WWcR8JwvGdRh5iRuyG58'
+end
+
 puts "Destroying all records..."
 
 User.destroy_all
@@ -148,37 +150,55 @@ job_offer_test3 = JobOffer.create(
   title: "Full front-end", description: "Job en or !", address: "Genève", skills: "Ruby on rails", requirements: "Master", contract_type: "Intérim", start_date: Date.today, end_date: Date.tomorrow, company: company_test, salaire: "45000"
 )
 puts "creating candidature test"
-# Créer des candidatures qui sont lié a une offre d'emploi et a un user candidat
-candidature_test1 = Candidature.create(
-  user: user_candidate1, job_offer: job_offer_test1, status: "rejected"
-)
-candidature_test2 = Candidature.create(
-  user: user_candidate2, job_offer: job_offer_test1, status: "accepted"
-)
-candidature_test3 = Candidature.create(
-  user: user_candidate3, job_offer: job_offer_test1, status: "submitted"
-)
-candidature_test4 = Candidature.create(
-  user: user_candidate4, job_offer: job_offer_test2, status: "accepted"
-)
-candidature_test5 = Candidature.create(
-  user: user_candidate5, job_offer: job_offer_test2, status: "rejected"
-)
-candidature_test6 = Candidature.create(
-  user: user_candidate6, job_offer: job_offer_test2, status: "submitted"
-)
-candidature_test7 = Candidature.create(
-  user: user_candidate7, job_offer: job_offer_test3, status: "accepted"
-)
-candidature_test8 = Candidature.create(
-  user: user_candidate8, job_offer: job_offer_test3, status: "submitted"
-)
-candidature_test9 = Candidature.create(
-  user: user_candidate9, job_offer: job_offer_test3, status: "submitted"
-)
-candidature_test10 = Candidature.create(
-  user: user_candidate10, job_offer: job_offer_test3, status: "accepted"
-)
+# Créer les candidatures (sans les PJ)
+candidature_test1 = Candidature.create(user: user_candidate1, job_offer: job_offer_test1, status: "rejected")
+candidature_test2 = Candidature.create(user: user_candidate2, job_offer: job_offer_test1, status: "accepted")
+candidature_test3 = Candidature.create(user: user_candidate3, job_offer: job_offer_test1, status: "submitted")
+candidature_test4 = Candidature.create(user: user_candidate4, job_offer: job_offer_test2, status: "accepted")
+candidature_test5 = Candidature.create(user: user_candidate5, job_offer: job_offer_test2, status: "rejected")
+candidature_test6 = Candidature.create(user: user_candidate6, job_offer: job_offer_test2, status: "submitted")
+candidature_test7 = Candidature.create(user: user_candidate7, job_offer: job_offer_test3, status: "accepted")
+candidature_test8 = Candidature.create(user: user_candidate8, job_offer: job_offer_test3, status: "submitted")
+candidature_test9 = Candidature.create(user: user_candidate9, job_offer: job_offer_test3, status: "submitted")
+candidature_test10 = Candidature.create(user: user_candidate10, job_offer: job_offer_test3, status: "accepted")
+
+# Ajout des PJ aux candidatures
+candidature_test1.cv.attach(io: URI.open("https://res.cloudinary.com/dwlskew13/image/upload/f_auto,q_auto/cv1.pdf"), filename: "cv1.pdf")
+candidature_test1.lettre_motivation.attach(io: URI.open("https://res.cloudinary.com/dwlskew13/image/upload/f_auto,q_auto/lettre_motivation1.pdf"), filename: "lettre_motivation1.pdf")
+candidature_test2.cv.attach(io: URI.open("https://res.cloudinary.com/dwlskew13/image/upload/f_auto,q_auto/cv2.pdf"), filename: "cv2.pdf")
+candidature_test2.lettre_motivation.attach(io: URI.open("https://res.cloudinary.com/dwlskew13/image/upload/f_auto,q_auto/lettre_motivation2.pdf"), filename: "lettre_motivation2.pdf")
+candidature_test3.cv.attach(io: URI.open("https://res.cloudinary.com/dwlskew13/image/upload/f_auto,q_auto/cv3.pdf"), filename: "cv3.pdf")
+candidature_test3.lettre_motivation.attach(io: URI.open("https://res.cloudinary.com/dwlskew13/image/upload/f_auto,q_auto/lettre_motivation3.pdf"), filename: "lettre_motivation3.pdf")
+candidature_test4.cv.attach(io: URI.open("https://res.cloudinary.com/dwlskew13/image/upload/f_auto,q_auto/cv4.pdf"), filename: "cv4.pdf")
+candidature_test4.lettre_motivation.attach(io: URI.open("https://res.cloudinary.com/dwlskew13/image/upload/f_auto,q_auto/lettre_motivation4.pdf"), filename: "lettre_motivation4.pdf")
+candidature_test5.cv.attach(io: URI.open("https://res.cloudinary.com/dwlskew13/image/upload/f_auto,q_auto/cv5.pdf"), filename: "cv5.pdf")
+candidature_test5.lettre_motivation.attach(io: URI.open("https://res.cloudinary.com/dwlskew13/image/upload/f_auto,q_auto/lettre_motivation5.pdf"), filename: "lettre_motivation5.pdf")
+candidature_test6.cv.attach(io: URI.open("https://res.cloudinary.com/dwlskew13/image/upload/f_auto,q_auto/cv6.pdf"), filename: "cv6.pdf")
+candidature_test6.lettre_motivation.attach(io: URI.open("https://res.cloudinary.com/dwlskew13/image/upload/f_auto,q_auto/lettre_motivation6.pdf"), filename: "lettre_motivation6.pdf")
+candidature_test7.cv.attach(io: URI.open("https://res.cloudinary.com/dwlskew13/image/upload/f_auto,q_auto/cv7.pdf"), filename: "cv7.pdf")
+candidature_test7.lettre_motivation.attach(io: URI.open("https://res.cloudinary.com/dwlskew13/image/upload/f_auto,q_auto/lettre_motivation7.pdf"), filename: "lettre_motivation7.pdf")
+candidature_test8.cv.attach(io: URI.open("https://res.cloudinary.com/dwlskew13/image/upload/f_auto,q_auto/cv8.pdf"), filename: "cv8.pdf")
+candidature_test8.lettre_motivation.attach(io: URI.open("https://res.cloudinary.com/dwlskew13/image/upload/f_auto,q_auto/lettre_motivation8.pdf"), filename: "lettre_motivation8.pdf")
+candidature_test9.cv.attach(io: URI.open("https://res.cloudinary.com/dwlskew13/image/upload/f_auto,q_auto/cv9.pdf"), filename: "cv9.pdf")
+candidature_test9.lettre_motivation.attach(io: URI.open("https://res.cloudinary.com/dwlskew13/image/upload/f_auto,q_auto/lettre_motivation9.pdf"), filename: "lettre_motivation9.pdf")
+candidature_test10.cv.attach(io: URI.open("https://res.cloudinary.com/dwlskew13/image/upload/f_auto,q_auto/cv10.pdf"), filename: "cv10.pdf")
+candidature_test10.lettre_motivation.attach(io: URI.open("https://res.cloudinary.com/dwlskew13/image/upload/f_auto,q_auto/lettre_motivation10.pdf"), filename: "lettre_motivation10.pdf")
+
+
+# candidature_data = [
+#   { user: user_candidate1, job_offer: job_offer_test1, status: "rejected", cv: "https://res.cloudinary.com/dwlskew13/image/upload/f_auto,q_auto/cv1.pdf", lettre_motivation: "https://res.cloudinary.com/dwlskew13/image/upload/f_auto,q_auto/lettre_motivation1.pdf" },
+#   { user: user_candidate2, job_offer: job_offer_test1, status: "accepted", cv: "https://res.cloudinary.com/dwlskew13/image/upload/f_auto,q_auto/cv2.pdf", lettre_motivation: "https://res.cloudinary.com/dwlskew13/image/upload/f_auto,q_auto/lettre_motivation2.pdf" },
+#   { user: user_candidate3, job_offer: job_offer_test1, status: "submitted", cv: "https://res.cloudinary.com/dwlskew13/image/upload/f_auto,q_auto/cv3.pdf", lettre_motivation: "https://res.cloudinary.com/dwlskew13/image/upload/f_auto,q_auto/lettre_motivation3.pdf" },
+#   { user: user_candidate4, job_offer: job_offer_test2, status: "accepted", cv: "https://res.cloudinary.com/dwlskew13/image/upload/f_auto,q_auto/cv4.pdf", lettre_motivation: "https://res.cloudinary.com/dwlskew13/image/upload/f_auto,q_auto/lettre_motivation4.pdf" },
+#   { user: user_candidate5, job_offer: job_offer_test2, status: "rejected", cv: "https://res.cloudinary.com/dwlskew13/image/upload/f_auto,q_auto/cv5.pdf", lettre_motivation: "https://res.cloudinary.com/dwlskew13/image/upload/f_auto,q_auto/lettre_motivation5.pdf" },
+#   { user: user_candidate6, job_offer: job_offer_test2, status: "submitted", cv: "https://res.cloudinary.com/dwlskew13/image/upload/f_auto,q_auto/cv6.pdf", lettre_motivation: "https://res.cloudinary.com/dwlskew13/image/upload/f_auto,q_auto/lettre_motivation6.pdf" },
+#   { user: user_candidate7, job_offer: job_offer_test3, status: "accepted", cv: "https://res.cloudinary.com/dwlskew13/image/upload/f_auto,q_auto/cv7.pdf", lettre_motivation: "https://res.cloudinary.com/dwlskew13/image/upload/f_auto,q_auto/lettre_motivation7.pdf" },
+#   { user: user_candidate8, job_offer: job_offer_test3, status: "submitted", cv: "https://res.cloudinary.com/dwlskew13/image/upload/f_auto,q_auto/cv8.pdf", lettre_motivation: "https://res.cloudinary.com/dwlskew13/image/upload/f_auto,q_auto/lettre_motivation8.pdf" },
+#   { user: user_candidate9, job_offer: job_offer_test3, status: "submitted", cv: "https://res.cloudinary.com/dwlskew13/image/upload/f_auto,q_auto/cv9.pdf", lettre_motivation: "https://res.cloudinary.com/dwlskew13/image/upload/f_auto,q_auto/lettre_motivation9.pdf" },
+#   { user: user_candidate10, job_offer: job_offer_test3, status: "accepted", cv: "https://res.cloudinary.com/dwlskew13/image/upload/f_auto,q_auto/cv10.pdf", lettre_motivation: "https://res.cloudinary.com/dwlskew13/image/upload/f_auto,q_auto/lettre_motivation10.pdf" }
+# ]
+
+
 puts "timeslot test"
 # Créer des timeslots qui sont lié a une candidature
 time_slot_test1 = TimeSlot.create(

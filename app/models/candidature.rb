@@ -4,7 +4,7 @@ class Candidature < ApplicationRecord
   belongs_to :user
   has_many :time_slots, dependent: :destroy
   has_many :interviews, through: :time_slots
-  # has_many_attached :files
+
   # Validations
   validates :job_offer, presence: true
   validates :user, presence: true
@@ -13,7 +13,10 @@ class Candidature < ApplicationRecord
   # Callbacks
   after_initialize :set_default_status, if: :new_record?
 
-  # Methods
+  # Cloudinary
+  has_one_attached :cv
+  has_one_attached :lettre_motivation
+
   private
 
   def set_default_status

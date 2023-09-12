@@ -2,7 +2,7 @@
 <html>
   <head>
     <%= favicon_link_tag "favicon.png", rel: "icon", type: "image/png" %>
-    <title>EasyRecruit</title>
+    <title>EasyRecruit : la solution de recrutement</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -10,11 +10,36 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <style>
+      .sidebar {
+        position: fixed;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 250px; /* Ajustez la largeur de la barre latérale selon vos besoins */
+        background-color: #f8f9fa; /* Couleur de fond de la barre latérale */
+        overflow-y: auto; /* Permet le défilement vertical si le contenu dépasse la hauteur de la barre latérale */
+        padding: 20px; /* Espace intérieur de la barre latérale */
+      }
+
+      /* Style pour le contenu principal à droite de la barre latérale */
+      .content {
+        margin-left: 250px; /* Assure que le contenu ne soit pas caché sous la barre latérale */
+        padding: 20px; /* Espace intérieur du contenu principal */
+      }
+    </style>
+
   </head>
 
   <body>
-    <%= render "shared/navbar" %>
-    <%= render "shared/flashes" %>
-    <%= yield %>
+    <div class="sidebar">
+      <!-- Contenu de la barre latérale -->
+      <%= render "shared/sidebar" %>
+      <%= render "shared/flashes" %>
+    </div>
+    <div class="content">
+      <!-- Contenu principal -->
+      <%= yield %>
+    </div>
   </body>
 </html>

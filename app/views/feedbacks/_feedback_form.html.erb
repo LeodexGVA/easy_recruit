@@ -1,30 +1,28 @@
-<div class="container">
-  <div class="row justify-content-center">
-    <%= form_with(model: [@feedback, @interview], url: interview_feedbacks_path(@interview), method: :post, html: { class: 'custom-form' }) do |form| %>
-      <!-- Champs du formulaire pour le feedback, par exemple : -->
-      <% if @feedback.errors.any? %>
-      <% @feedback.errors.full_messages.each do |message|%>
+<%= form_with(model: [@feedback, @interview], url: interview_feedbacks_path(@interview), method: :post, html: { class: 'custom-form' }) do |form| %>
+  <!-- Champs du formulaire pour le feedback, par exemple : -->
+  <% if @feedback.errors.any? %>
+    <% @feedback.errors.full_messages.each do |message| %>
       <p><%= message %></p>
-      <%end%>
-    <%end%>
-  </div>
-</div>
-
-
-
-<div class="container">
-  <div class="row justify-content-center">
-    <div class="col-md-6">
+    <% end %>
+  <% end %>
+  <div class="container">
+    <div class="row justify-content-center">
       <div class="card">
-        <div class="form-inputs">
-          <%= form.label :comment %>
-          <%= form.text_area :comment, { class: "textarea" } %>
-          <%= form.label :score %>
-          <%= form.select :score, (1..5).to_a, { class: "form-select" } %>
+        <div class="card-header">
+          <h5>Ajouter un commentaire</h5>
         </div>
-          <%= form.submit 'Ajouter le feedback', { class: "btn btn-primary" } %></div>
+        <div class="card-body">
+          <div class="form-inputs">
+            <%= form.label :score, class: "form-label" %>
+          </div>
+          <%= form.select :score, (1..5).to_a, class: "form-select" %>
+          <div class="form-inputs">
+            <%= form.label :comment, class: "form-label" %>
+          </div>
+          <%= form.text_area :comment, class: "textarea" %>
+        <%= form.submit 'Ajouter le feedback', { class: "btn btn-primary float-end" } %>
+        </div>
       </div>
-<% end %>
     </div>
   </div>
-</div>
+<% end %>

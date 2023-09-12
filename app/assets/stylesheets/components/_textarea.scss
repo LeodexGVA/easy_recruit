@@ -1,0 +1,42 @@
+textarea {
+  margin: 0;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+textarea {
+  resize: vertical;
+}
+textarea.form-control {
+  min-height: unset;
+}
+
+textarea.form-control-sm {
+  min-height: unset;
+}
+
+textarea.form-control-lg {
+  min-height: unset;
+}
+
+.was-validated textarea.form-control:valid,
+textarea.form-control.is-valid {
+  padding-right: unset;
+  background-position: top 0.75rem right 0.75rem;
+}
+
+.was-validated textarea.form-control:invalid,
+textarea.form-control.is-invalid {
+  padding-right: unset;
+  background-position: top 0.75rem right 0.75rem;
+}
+input,
+button,
+select,
+optgroup,
+textarea {
+  margin: 0;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}

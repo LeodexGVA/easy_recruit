@@ -24,7 +24,7 @@
   word-wrap: break-word;
   background-color: var(--bs-card-bg);
   background-clip: border-box;
-  border: var(--bs-card-border-width) solid var(--bs-card-border-color);
+  border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: var(--bs-card-border-radius);
   padding: 15px;
   box-shadow: 0 20px 27px 0 rgba(0, 0, 0, 0.05);

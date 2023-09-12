@@ -1,30 +1,32 @@
-<div class="modal fade" id="show_modal" tabindex="-1" role="dialog">
-  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-    <div class="modal-content">
-      <!-- Modal Header Start -->
-      <div class="modal-header">
-        <%= cl_image_tag candidature.user.avatar.key, class: "avatar", alt: "avatar" %>
-        <h3 class="modal-title"><%= candidature.user.first_name %> <%= candidature.user.last_name %> - <%= candidature.status %></h3>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <!-- Modal Body Start -->
-      <div class="modal-body">
-        <p><strong>🎂 Date de naissance:</strong> <%= candidature.user.birth_date %></p>
-        <p><strong>📍 Adresse:</strong> <%= candidature.user.address %></p>
-        <p><strong>📧 Email:</strong> <%= candidature.user.email %></p>
-        <p><strong>📞 Téléphone:</strong> <%= candidature.user.phone %></p>
-        <% if candidature.user.linkedin_url == nil %>
-          <p><strong>🔗 Linkedin:</strong> Pas de lien Linkedin</p>
-        <% else %>
-          <p><strong>🔗 Linkedin:</strong> <%= candidature.user.linkedin_url %></p>
-        <% end %>
-        <p><strong>💼 CV:</strong> <%= image_tag candidature.cv, alt: 'CV' %></p>
-        <p><strong>📝 Lettre de motivation:</strong> <%= image_tag candidature.lettre_motivation, alt: 'Lettre de Motivation' %></p>
-      </div>
-      <!-- Modal Footer Start -->
-      <div class="modal-footer">
-        <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal"><span class="fa-solid fa-xmark"></span> Annuler</button>
+<% @candidatures.each_with_index do |candidature, index| %>
+  <div class="modal fade" id="show_modal_<%= index %>" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+      <div class="modal-content">
+        <!-- Modal Header Start -->
+        <div class="modal-header">
+          <%= cl_image_tag candidature.user.avatar.key, class: "avatar", alt: "avatar" %>
+          <h3 class="modal-title"><%= candidature.user.first_name %> <%= candidature.user.last_name %></h3>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <!-- Modal Body Start -->
+        <div class="modal-body">
+          <p><strong>🎂 Date de naissance:</strong> <%= candidature.user.birth_date %></p>
+          <p><strong>📍 Adresse:</strong> <%= candidature.user.address %></p>
+          <p><strong>📧 Email:</strong> <%= candidature.user.email %></p>
+          <p><strong>📞 Téléphone:</strong> <%= candidature.user.phone %></p>
+          <% if candidature.user.linkedin_url == nil %>
+            <p><strong>🔗 Linkedin:</strong> Pas de lien Linkedin</p>
+          <% else %>
+            <p><strong>🔗 Linkedin:</strong> <%= candidature.user.linkedin_url %></p>
+          <% end %>
+          <p><strong>💼 CV:</strong> <%= image_tag candidature.cv, alt: 'CV' %></p>
+          <p><strong>📝 Lettre de motivation:</strong> <%= image_tag candidature.lettre_motivation, alt: 'Lettre de Motivation' %></p>
+        </div>
+        <!-- Modal Footer Start -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal"><span class="fa-solid fa-xmark"></span> Annuler</button>
+        </div>
       </div>
     </div>
   </div>
-</div>
+<% end %>

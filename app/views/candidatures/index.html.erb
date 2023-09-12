@@ -4,13 +4,13 @@
   <!-- Formulaire pour gérer les candidatures sélectionnées -->
   <%= form_tag new_time_slot_path, method: :get do %>
     <div class="col-md-4 col-sm-6 mb-4">
-      <% @candidatures.each do |candidature| %>
+      <% @candidatures.each_with_index do |candidature, index| %>
         <div class="card" data-aos="zoom-in">
           <div class="card-body">
             <%= check_box_tag "selected_candidatures[]", candidature.id, false, class: "candidature-checkbox" %>
             <%= candidature.user.first_name %> <%= candidature.user.last_name %>
-              <a href="#" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#show_modal"><span class="fa-solid fa-plus"></span> Plus d'info</a>
-            <%= render "show_modal", candidature: candidature %>
+              <a href="#" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#show_modal_<%= index %>"><span class="fa-solid fa-plus"></span> Plus d'info</a>
+              <%= render "show_modal", candidature: candidature %>
           </div>
         </div>
       <% end %>

@@ -8,7 +8,7 @@
         <div class="card" data-aos="zoom-in">
           <div class="card-body">
             <%= check_box_tag "selected_candidatures[]", candidature.id, false, class: "candidature-checkbox" %>
-            <%= candidature.user.first_name %> <%= candidature.user.last_name %>
+            <%= cl_image_tag candidature.user.avatar.key, class: "avatar", alt: "avatar" %> <%= candidature.user.first_name %> <%= candidature.user.last_name %>
               <a href="#" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#show_modal"><span class="fa-solid fa-plus"></span> Plus d'info</a>
             <%= render "show_modal", candidature: candidature %>
           </div>

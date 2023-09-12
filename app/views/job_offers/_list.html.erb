@@ -2,6 +2,7 @@
   <table class="table table-hover text-center">
     <thead>
       <tr>
+        <th>Statut</th>
         <th>Entreprise</th>
         <th>Titre de l'annonce</th>
         <th>Description</th>
@@ -14,8 +15,9 @@
       <div class="row">
         <% @job_offers.each do |job_offer| %>
           <tr>
+            <td><%= job_offer.status %></td>
             <td><strong><%= job_offer.company.name %></strong></td>
-            <td><a href="<%= job_offer_path(job_offer) %>"><%= job_offer.title %></a></td>
+            <td><a href="<%= job_offer_path(job_offer) %>"><p><%= job_offer.title %></p></a></td>
             <td><%= job_offer.description %></td>
             <td><%= job_offer.contract_type %></td>
             <td>

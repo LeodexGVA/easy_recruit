@@ -3,12 +3,12 @@
     <div class="modal-content">
       <!-- Modal Header Start -->
       <div class="modal-header">
+        <%= cl_image_tag candidature.user.avatar.key, class: "avatar", alt: "avatar" %>
         <h3 class="modal-title"><%= candidature.user.first_name %> <%= candidature.user.last_name %> - <%= candidature.status %></h3>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <!-- Modal Body Start -->
       <div class="modal-body">
-        <div><%= cl_image_tag candidature.user.avatar.url %></div>
         <p><strong>🎂 Date de naissance:</strong> <%= candidature.user.birth_date %></p>
         <p><strong>📍 Adresse:</strong> <%= candidature.user.address %></p>
         <p><strong>📧 Email:</strong> <%= candidature.user.email %></p>

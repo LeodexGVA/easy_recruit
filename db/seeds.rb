@@ -1,11 +1,4 @@
-# require 'cloudinary'
-require "open-uri"
-# # Config Cloudinary
-Cloudinary.config do |config|
-  config.cloud_name = 'dwlskew13'
-  config.api_key = '336736776289989'
-  config.api_secret = 'Q-vTcA7WWcR8JwvGdRh5iRuyG58'
-end
+ require "open-uri"
 
 puts "Destroying all records..."
 
@@ -34,23 +27,23 @@ user_candidate9 = User.create(first_name: "William", last_name: "Taylor", email:
 user_candidate10 = User.create(first_name: "Ava", last_name: "Moore", email: "ava.moore10@example.com", password: "motdepasse10", address: "777 Elm Avenue, Dallas", phone: "+1 555-777-8888", user_type: "candidate", admin: false)
 
 # Ajout des avatars aux candidats
-user_candidate1.avatar.attach(io: URI.open("https://res.cloudinary.com/dlvve11nm/image/upload/v1694507964/untitled%20folder/john_doe.jpg"), filename: "john_doe.jpg")
-user_candidate2.avatar.attach(io: URI.open("https://res.cloudinary.com/dlvve11nm/image/upload/v1694507963/untitled%20folder/alice_smith.jpg"), filename: "alice_smith.jpg")
-user_candidate3.avatar.attach(io: URI.open("https://res.cloudinary.com/dlvve11nm/image/upload/v1694507964/untitled%20folder/david_lee.jpg"), filename: "david_lee.jpg")
-user_candidate4.avatar.attach(io: URI.open("https://res.cloudinary.com/dlvve11nm/image/upload/v1694507964/untitled%20folder/emily_brown.jpg"), filename: "emily_brown.jpg")
-user_candidate5.avatar.attach(io: URI.open("https://res.cloudinary.com/dlvve11nm/image/upload/v1694507963/untitled%20folder/bob_johnson.jpg"), filename: "bob_johnson.jpg")
-user_candidate6.avatar.attach(io: URI.open("https://res.cloudinary.com/dlvve11nm/image/upload/v1694507964/untitled%20folder/sophia_wilson.jpg"), filename: "sophia_wilson.jpg")
-user_candidate7.avatar.attach(io: URI.open("https://res.cloudinary.com/dlvve11nm/image/upload/v1694507964/untitled%20folder/daniel_anderson.jpg"), filename: "daniel_anderson.jpg")
-user_candidate8.avatar.attach(io: URI.open("https://res.cloudinary.com/dlvve11nm/image/upload/v1694507964/untitled%20folder/olivia_miller.jpg"), filename: "olivia_miller.jpg")
-user_candidate9.avatar.attach(io: URI.open("https://res.cloudinary.com/dlvve11nm/image/upload/v1694507964/untitled%20folder/william_taylor.jpg"), filename: "william_taylor.jpg")
-user_candidate10.avatar.attach(io: URI.open("https://res.cloudinary.com/dlvve11nm/image/upload/v1694507963/untitled%20folder/ava_moore.jpg"), filename: "ava_moore.jpg")
+user_candidate1.avatar.attach(io: URI.open("https://res.cloudinary.com/dlvve11nm/image/upload/v1694521443/development/fwrcfykxn1btoy0kdvwty8l7lpx.jpg"), filename: "john_doe.jpg")
+user_candidate2.avatar.attach(io: URI.open("https://res.cloudinary.com/dlvve11nm/image/upload/v1694521442/development/woman-3289372_1280_flp2hw.jpg"), filename: "alice_smith.jpg")
+user_candidate3.avatar.attach(io: URI.open("https://res.cloudinary.com/dlvve11nm/image/upload/v1694521440/development/model-2911329_1280_srlxc9.jpg"), filename: "david_lee.jpg")
+user_candidate4.avatar.attach(io: URI.open("https://res.cloudinary.com/dlvve11nm/image/upload/v1694521441/development/portrait-2865605_1280_pn1ivz.jpg"), filename: "emily_brown.jpg")
+user_candidate5.avatar.attach(io: URI.open("https://res.cloudinary.com/dlvve11nm/image/upload/v1694521442/development/portrait-3157821_1280_zkgw1l.jpg"), filename: "bob_johnson.jpg")
+user_candidate6.avatar.attach(io: URI.open("https://res.cloudinary.com/dlvve11nm/image/upload/v1694521441/development/portrait-2159177_1280_w39ttk.jpg"), filename: "sophia_wilson.jpg")
+user_candidate7.avatar.attach(io: URI.open("https://res.cloudinary.com/dlvve11nm/image/upload/v1694521440/development/black-man-3532185_1280_sdn9up.jpg"), filename: "daniel_anderson.jpg")
+user_candidate8.avatar.attach(io: URI.open("https://res.cloudinary.com/dlvve11nm/image/upload/v1694521440/development/girl-6093779_1280_obxsel.jpg"), filename: "olivia_miller.jpg")
+user_candidate9.avatar.attach(io: URI.open("https://res.cloudinary.com/dlvve11nm/image/upload/v1694521439/development/beard-1845166_1280_v1tsfr.jpg"), filename: "william_taylor.jpg")
+user_candidate10.avatar.attach(io: URI.open("https://res.cloudinary.com/dlvve11nm/image/upload/v1694521439/development/attractive-1869761_1280_ntu5wb.jpg"), filename: "ava_moore.jpg")
 
 # Créer les compagnies
 puts "creating company test"
 company_test = Company.create(name: "EasyRecruit", description: "La solution de recrutement", email: "test@test.com", address: "Genève", phone: "1234567", industry: "IT", user: user_recruiter)
 
 # Ajout des logos aux compagnies
-company_test.logo.attach(io: URI.open("https://res.cloudinary.com/dlvve11nm/image/upload/v1694511015/8kpVsY-LogoMakr_l3biq2.png"), filename: "logo.png")
+company_test.logo.attach(io: URI.open("https://res.cloudinary.com/dlvve11nm/image/upload/v1694524736/development/logo_v2_skgknx.png"), filename: "logo.png", content_type: "image/png")
 
 # Créer des offre lié par companies
 puts "creating job offer test"

@@ -4,7 +4,7 @@
       <!-- Modal Header Start -->
       <div class="modal-header">
         <%= cl_image_tag candidature.user.avatar.key, class: "avatar", alt: "avatar" %>
-        <h3 class="modal-title"><%= candidature.user.first_name %> <%= candidature.user.last_name %> - <%= candidature.status %></h3>
+        <h3 class="modal-title"><%= candidature.user.first_name %> <%= candidature.user.last_name %></h3>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <!-- Modal Body Start -->
@@ -18,8 +18,8 @@
         <% else %>
           <p><strong>🔗 Linkedin:</strong> <%= candidature.user.linkedin_url %></p>
         <% end %>
-        <p><strong>💼 CV:</strong> <%= image_tag candidature.cv, alt: 'CV' %></p>
-        <p><strong>📝 Lettre de motivation:</strong> <%= image_tag candidature.lettre_motivation, alt: 'Lettre de Motivation' %></p>
+        <p><strong>💼 CV:</strong> <a href="<%= rails_blob_url(candidature.cv, disposition: 'attachment') %>", target="blank">Télécharger</a></p>
+        <p><strong>📝 Lettre de motivation:</strong> <a href="<%= rails_blob_url(candidature.lettre_motivation, disposition: 'attachment') %>", target="blank">Télécharger</a></p>
       </div>
       <!-- Modal Footer Start -->
       <div class="modal-footer">

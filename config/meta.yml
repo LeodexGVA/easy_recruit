@@ -1,0 +1,9 @@
+meta_product_name : « Nom du produit »
+
+meta_title : « Nom du produit – Slogan du produit »
+
+meta_description : « Description pertinente »
+
+meta_image : "logo.png" # devrait exister dans `app/assets/images/`
+
+twitter_account : « @product_twitter_account » # requis pour les cartes Twitter

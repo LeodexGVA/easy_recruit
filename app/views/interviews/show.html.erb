@@ -1,19 +1,37 @@
-<div class="container my-5">
-  <h1 class="mb-5">Entretien créé par <%= @user.first_name.capitalize %> <%= @user.last_name.capitalize %></h1>
-  <div class="job_offer_details mb-5">
-    <h2>Informations</h2>
-    <p><strong>ℹ️ Date:</strong> <%= @time_slot.date %></p>
-    <p><strong>📍 Time:</strong> <%= @time_slot.time %></p>
-    <p><strong>⭐️ status:</strong> <%= @time_slot.status %></p>
+<div class="container">
+  <div class="row">
+    <div class="card">
+      <div class="card-header">
+        <h1>Entretien créé par <%= @user.first_name.capitalize %> <%= @user.last_name.capitalize %></h1>
+        <h3>Informations</h2>
+      </div>
+      <div class="card-body mb-5">
+        <p><strong>ℹ️ Date :</strong> <%= @time_slot.date %></p>
+        <p><strong>📍 Time :</strong> <%= @time_slot.time %></p>
+        <p><strong>⭐️ Status :</strong> <%= @time_slot.status %></p>
+        <p><strong>⭐️ Candidat.e :</strong> <%= @candidate.first_name %> <%= @candidate.last_name %></p>
+      </div>
+    </div>
   </div>
 </div>
 <!-- Afficher les feedbacks existants -->
-<% @interview.feedbacks.each do |feedback| %>
-  <div class="feedback">
-    <%= feedback.comment %>
-    <%= feedback.score %>
+
+<div class="container my-5">
+  <div class="row mb-5">
+    <div class="card">
+          <div class="card-header">
+            <h2>Espace feedbacks</h2>
+          </div>
+      <% @interview.feedbacks.each do |feedback| %>
+          <h6><em>Commentaire ajouté par <u><%= @user.first_name %></u></em></h3>
+        <div class="card mb-5">
+          <td><%= feedback.score %>/5</td>
+          <td><%= feedback.comment %></td>
+        </div>
+      <% end %>
+    </div>
   </div>
-<% end %>
+</div>
 
 <!-- Inclure la partialle du formulaire de feedback -->
 <%= render 'feedbacks/feedback_form' %>

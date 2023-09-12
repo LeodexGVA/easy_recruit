@@ -15,6 +15,7 @@ class ApplicationController < ActionController::Base
   #   redirect_to(root_path)
   # end
 
+  # app/controllers/application_controller.rb def default_url_options { hôte : ENV["easyrecruit.site"] || "localhost:3000" } fin
 
   private
 

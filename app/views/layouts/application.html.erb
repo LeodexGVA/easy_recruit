@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <%= favicon_link_tag "favicon.png", rel: "icon", type: "image/png" %>
+    <%= favicon_link_tag "favicon_v2.png", rel: "icon", type: "image/png" %>
     <title>EasyRecruit : la solution de recrutement</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= csrf_meta_tags %>
@@ -22,6 +22,35 @@
         padding: 20px; /* Espace intérieur de la barre latérale */
       }
 
+      .sidebar-nav {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .sidebar-item {
+        padding: 10px 20px;
+        border-left: 3px solid transparent;
+      }
+
+      .sidebar-link {
+        text-decoration: none;
+        color: #333; /* Couleur du texte */
+        display: block;
+      }
+
+      .sidebar-link:hover {
+        background-color: #e9ecef; /* Couleur de fond au survol */
+        border-radius: 0 10px 10px 0; /* Ajout d'un ombrage arrondi à gauche */
+      }
+
+      .sidebar-link.active {
+        border-left: 3px solid #cb0c9f; /* Couleur du bord gauche pour l'élément actif */
+        background-color: #e9ecef; /* Couleur de fond de l'élément actif */
+        border-radius: 0 10px 10px 0; /* Ajout d'un ombrage arrondi à gauche */
+
+      }
+
       /* Style pour le contenu principal à droite de la barre latérale */
       .content {
         margin-left: 250px; /* Assure que le contenu ne soit pas caché sous la barre latérale */
@@ -35,9 +64,9 @@
     <div class="sidebar">
       <!-- Contenu de la barre latérale -->
       <%= render "shared/sidebar" %>
-      <%= render "shared/flashes" %>
     </div>
     <div class="content">
+      <%= render "shared/flashes" %>
       <!-- Contenu principal -->
       <%= yield %>
     </div>

@@ -1,11 +1,4 @@
-# require 'cloudinary'
-require "open-uri"
-# # Config Cloudinary
-Cloudinary.config do |config|
-  config.cloud_name = 'dwlskew13'
-  config.api_key = '336736776289989'
-  config.api_secret = 'Q-vTcA7WWcR8JwvGdRh5iRuyG58'
-end
+ require "open-uri"
 
 puts "Destroying all records..."
 
@@ -19,137 +12,46 @@ TimeSlot.destroy_all
 
 puts "Creating user test"
 # Créer l'utilisateur recruteur
-user_recruiter = User.create(
-  first_name: "Dylan", last_name: "C", email: "test@gmail.com", password: "1234567", address: "24 chemin des champs gottreux", phone: "123456", user_type: "recruiter", admin: false
-)
+user_recruiter = User.create(  first_name: "Dylan", last_name: "C", email: "test@gmail.com", password: "1234567", address: "24 chemin des champs gottreux", phone: "123456", user_type: "recruiter", admin: false)
+
 # Créer les utilisateurs candidats
-user_candidate1 = User.create(
-  first_name: "John",
-  last_name: "Doe",
-  email: "john.doe1@example.com",
-  password: "motdepasse1",
-  address: "123 Rue de la République, Paris",
-  phone: "+33 1 23 45 67 89",
-  user_type: "candidate",
-  admin: false
-)
+user_candidate1 = User.create(  first_name: "John", last_name: "Doe", email: "john.doe1@example.com", password: "motdepasse1", address: "123 Rue de la République, Paris", phone: "+33 1 23 45 67 89", user_type: "candidate", admin: false)
+user_candidate2 = User.create(first_name: "Alice", last_name: "Smith", email: "alice.smith2@example.com", password: "motdepasse2", address: "456 Elm Street, New York", phone: "+1 555-555-5555", user_type: "candidate", admin: false)
+user_candidate3 = User.create(first_name: "Bob", last_name: "Johnson", email: "bob.johnson3@example.com", password: "motdepasse3", address: "789 Oak Avenue, Los Angeles", phone: "+1 555-123-4567", user_type: "candidate", admin: false)
+user_candidate4 = User.create(first_name: "Emily", last_name: "Brown", email: "emily.brown4@example.com", password: "motdepasse4", address: "1010 Maple Road, Chicago", phone: "+1 555-987-6543", user_type: "candidate", admin: false)
+user_candidate5 = User.create(first_name: "David", last_name: "Lee", email: "david.lee5@example.com", password: "motdepasse5", address: "222 Pine Street, San Francisco", phone: "+1 555-222-3333", user_type: "candidate", admin: false)
+user_candidate6 = User.create(first_name: "Sophia", last_name: "Wilson", email: "sophia.wilson6@example.com", password: "motdepasse6", address: "333 Cedar Lane, Boston", phone: "+1 555-333-4444", user_type: "candidate", admin: false)
+user_candidate7 = User.create(first_name: "Daniel", last_name: "Anderson", email: "daniel.anderson7@example.com", password: "motdepasse7", address: "444 Birch Avenue, Seattle", phone: "+1 555-444-5555", user_type: "candidate", admin: false)
+user_candidate8 = User.create(first_name: "Olivia", last_name: "Miller", email: "olivia.miller8@example.com", password: "motdepasse8", address: "555 Spruce Drive, Miami", phone: "+1 555-555-6789", user_type: "candidate", admin: false)
+user_candidate9 = User.create(first_name: "William", last_name: "Taylor", email: "william.taylor9@example.com", password: "motdepasse9", address: "666 Oak Street, Atlanta", phone: "+1 555-666-7777", user_type: "candidate", admin: false)
+user_candidate10 = User.create(first_name: "Ava", last_name: "Moore", email: "ava.moore10@example.com", password: "motdepasse10", address: "777 Elm Avenue, Dallas", phone: "+1 555-777-8888", user_type: "candidate", admin: false)
 
-user_candidate2 = User.create(
-  first_name: "Alice",
-  last_name: "Smith",
-  email: "alice.smith2@example.com",
-  password: "motdepasse2",
-  address: "456 Elm Street, New York",
-  phone: "+1 555-555-5555",
-  user_type: "candidate",
-  admin: false
-)
+# Ajout des avatars aux candidats
+user_candidate1.avatar.attach(io: URI.open("https://res.cloudinary.com/dlvve11nm/image/upload/v1694521443/development/fwrcfykxn1btoy0kdvwty8l7lpx.jpg"), filename: "john_doe.jpg")
+user_candidate2.avatar.attach(io: URI.open("https://res.cloudinary.com/dlvve11nm/image/upload/v1694521442/development/woman-3289372_1280_flp2hw.jpg"), filename: "alice_smith.jpg")
+user_candidate3.avatar.attach(io: URI.open("https://res.cloudinary.com/dlvve11nm/image/upload/v1694521440/development/model-2911329_1280_srlxc9.jpg"), filename: "david_lee.jpg")
+user_candidate4.avatar.attach(io: URI.open("https://res.cloudinary.com/dlvve11nm/image/upload/v1694521441/development/portrait-2865605_1280_pn1ivz.jpg"), filename: "emily_brown.jpg")
+user_candidate5.avatar.attach(io: URI.open("https://res.cloudinary.com/dlvve11nm/image/upload/v1694521442/development/portrait-3157821_1280_zkgw1l.jpg"), filename: "bob_johnson.jpg")
+user_candidate6.avatar.attach(io: URI.open("https://res.cloudinary.com/dlvve11nm/image/upload/v1694521441/development/portrait-2159177_1280_w39ttk.jpg"), filename: "sophia_wilson.jpg")
+user_candidate7.avatar.attach(io: URI.open("https://res.cloudinary.com/dlvve11nm/image/upload/v1694521440/development/black-man-3532185_1280_sdn9up.jpg"), filename: "daniel_anderson.jpg")
+user_candidate8.avatar.attach(io: URI.open("https://res.cloudinary.com/dlvve11nm/image/upload/v1694521440/development/girl-6093779_1280_obxsel.jpg"), filename: "olivia_miller.jpg")
+user_candidate9.avatar.attach(io: URI.open("https://res.cloudinary.com/dlvve11nm/image/upload/v1694521439/development/beard-1845166_1280_v1tsfr.jpg"), filename: "william_taylor.jpg")
+user_candidate10.avatar.attach(io: URI.open("https://res.cloudinary.com/dlvve11nm/image/upload/v1694521439/development/attractive-1869761_1280_ntu5wb.jpg"), filename: "ava_moore.jpg")
 
-user_candidate3 = User.create(
-  first_name: "Bob",
-  last_name: "Johnson",
-  email: "bob.johnson3@example.com",
-  password: "motdepasse3",
-  address: "789 Oak Avenue, Los Angeles",
-  phone: "+1 555-123-4567",
-  user_type: "candidate",
-  admin: false
-)
-
-user_candidate4 = User.create(
-  first_name: "Emily",
-  last_name: "Brown",
-  email: "emily.brown4@example.com",
-  password: "motdepasse4",
-  address: "1010 Maple Road, Chicago",
-  phone: "+1 555-987-6543",
-  user_type: "candidate",
-  admin: false
-)
-
-user_candidate5 = User.create(
-  first_name: "David",
-  last_name: "Lee",
-  email: "david.lee5@example.com",
-  password: "motdepasse5",
-  address: "222 Pine Street, San Francisco",
-  phone: "+1 555-222-3333",
-  user_type: "candidate",
-  admin: false
-)
-
-user_candidate6 = User.create(
-  first_name: "Sophia",
-  last_name: "Wilson",
-  email: "sophia.wilson6@example.com",
-  password: "motdepasse6",
-  address: "333 Cedar Lane, Boston",
-  phone: "+1 555-333-4444",
-  user_type: "candidate",
-  admin: false
-)
-
-user_candidate7 = User.create(
-  first_name: "Daniel",
-  last_name: "Anderson",
-  email: "daniel.anderson7@example.com",
-  password: "motdepasse7",
-  address: "444 Birch Avenue, Seattle",
-  phone: "+1 555-444-5555",
-  user_type: "candidate",
-  admin: false
-)
-
-user_candidate8 = User.create(
-  first_name: "Olivia",
-  last_name: "Miller",
-  email: "olivia.miller8@example.com",
-  password: "motdepasse8",
-  address: "555 Spruce Drive, Miami",
-  phone: "+1 555-555-6789",
-  user_type: "candidate",
-  admin: false
-)
-
-user_candidate9 = User.create(
-  first_name: "William",
-  last_name: "Taylor",
-  email: "william.taylor9@example.com",
-  password: "motdepasse9",
-  address: "666 Oak Street, Atlanta",
-  phone: "+1 555-666-7777",
-  user_type: "candidate",
-  admin: false
-)
-
-user_candidate10 = User.create(
-  first_name: "Ava",
-  last_name: "Moore",
-  email: "ava.moore10@example.com",
-  password: "motdepasse10",
-  address: "777 Elm Avenue, Dallas",
-  phone: "+1 555-777-8888",
-  user_type: "candidate",
-  admin: false
-)
-
-puts "creating company test"
 # Créer les compagnies
-company_test = Company.create(
-  name: "EasyRecruit", description: "La solution de recrutement", email: "test@test.com", address: "Genève", phone: "1234567", industry: "IT", user: user_recruiter
-)
-puts "creating job offer test"
+puts "creating company test"
+company_test = Company.create(name: "EasyRecruit", description: "La solution de recrutement", email: "test@test.com", address: "Genève", phone: "1234567", industry: "IT", user: user_recruiter)
+
+# Ajout des logos aux compagnies
+company_test.logo.attach(io: URI.open("https://res.cloudinary.com/dlvve11nm/image/upload/v1694524736/development/logo_v2_skgknx.png"), filename: "logo.png", content_type: "image/png")
+
 # Créer des offre lié par companies
-job_offer_test1 = JobOffer.create(
-  title: "fullstack dev", description: "Job en or !", address: "Genève", skills: "Ruby on rails", requirements: "Master", contract_type: "CDI", start_date: Date.today, end_date: Date.tomorrow, company: company_test, salaire: "25000"
-)
-job_offer_test2 = JobOffer.create(
-  title: "Chef de projet", description: "Job en or !", address: "Genève", skills: "Ruby on rails", requirements: "Master", contract_type: "CDD", start_date: Date.today, end_date: Date.tomorrow, company: company_test, salaire: "30000"
-)
-job_offer_test3 = JobOffer.create(
-  title: "Full front-end", description: "Job en or !", address: "Genève", skills: "Ruby on rails", requirements: "Master", contract_type: "Intérim", start_date: Date.today, end_date: Date.tomorrow, company: company_test, salaire: "45000"
-)
+puts "creating job offer test"
+job_offer_test1 = JobOffer.create(title: "fullstack dev", description: "Job en or !", address: "Genève", skills: "Ruby on rails", requirements: "Master", contract_type: "CDI", start_date: Date.today, end_date: Date.tomorrow, company: company_test, salaire: "25000")
+job_offer_test2 = JobOffer.create(title: "Chef de projet", description: "Job en or !", address: "Genève", skills: "Ruby on rails", requirements: "Master", contract_type: "CDD", start_date: Date.today, end_date: Date.tomorrow, company: company_test, salaire: "30000")
+job_offer_test3 = JobOffer.create(title: "Full front-end", description: "Job en or !", address: "Genève", skills: "Ruby on rails", requirements: "Master", contract_type: "Intérim", start_date: Date.today, end_date: Date.tomorrow, company: company_test, salaire: "45000")
 puts "creating candidature test"
+
 # Créer les candidatures (sans les PJ)
 candidature_test1 = Candidature.create(user: user_candidate1, job_offer: job_offer_test1, status: "rejected")
 candidature_test2 = Candidature.create(user: user_candidate2, job_offer: job_offer_test1, status: "accepted")

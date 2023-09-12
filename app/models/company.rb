@@ -10,10 +10,13 @@ class Company < ApplicationRecord
   validates :address, presence: true
   validates :phone, presence: true
   validates :industry, presence: true, inclusion: { in: %w[IT Finance Marketing Other] }
+
   # Callbacks
   after_initialize :set_default_industry, if: :new_record?
 
-  # Methods
+  # Cloudinary
+  has_one_attached :logo
+
   private
 
   def set_default_industry

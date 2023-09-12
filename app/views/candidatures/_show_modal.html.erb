@@ -8,6 +8,7 @@
       </div>
       <!-- Modal Body Start -->
       <div class="modal-body">
+        <div><%= image_tag candidature.user.avatar %></div>
         <p><strong>🎂 Date de naissance:</strong> <%= candidature.user.birth_date %></p>
         <p><strong>📍 Adresse:</strong> <%= candidature.user.address %></p>
         <p><strong>📧 Email:</strong> <%= candidature.user.email %></p>
@@ -17,8 +18,8 @@
         <% else %>
           <p><strong>🔗 Linkedin:</strong> <%= candidature.user.linkedin_url %></p>
         <% end %>
-        <p><strong>💼 CV:</strong> <%= image_tag candidature.cv_url, alt: 'CV' %></p>
-        <p><strong>📝 Lettre de motivation:</strong> <%= image_tag candidature.lettre_motivation_url, alt: 'Lettre de Motivation' %></p>
+        <p><strong>💼 CV:</strong> <%= image_tag candidature.cv, alt: 'CV' %></p>
+        <p><strong>📝 Lettre de motivation:</strong> <%= image_tag candidature.lettre_motivation, alt: 'Lettre de Motivation' %></p>
       </div>
       <!-- Modal Footer Start -->
       <div class="modal-footer">

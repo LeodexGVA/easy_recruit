@@ -8,7 +8,7 @@
       </div>
       <!-- Modal Body Start -->
       <div class="modal-body">
-        <div><%= image_tag candidature.user.avatar %></div>
+        <div><%= cl_image_tag candidature.user.avatar.url %></div>
         <p><strong>🎂 Date de naissance:</strong> <%= candidature.user.birth_date %></p>
         <p><strong>📍 Adresse:</strong> <%= candidature.user.address %></p>
         <p><strong>📧 Email:</strong> <%= candidature.user.email %></p>

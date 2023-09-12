@@ -1,4 +1,17 @@
 class JobOffer < ApplicationRecord
+ # postgre sql search
+ include PgSearch::Model
+
+ pg_search_scope :search_by_title_and_contract_type,
+   against: [:title, :contract_type],
+   using: {
+     tsearch: {
+       prefix: true,
+      #  any_word: true,
+      #  case_sensitive: false, # Activer la sensibilité à la casse
+      #  accent: true # Activer la prise en compte des accents
+     }
+   }
   # Associations
   belongs_to :company
   has_many :steps, dependent: :destroy

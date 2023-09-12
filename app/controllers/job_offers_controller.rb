@@ -2,6 +2,16 @@ class JobOffersController < ApplicationController
   def index
     @job_offers = policy_scope(JobOffer)
     @job_offers = JobOffer.where(company_id: current_user.company.id) # on récupère toutes les offres d'emploi du recruteur
+    if params[:query].present?
+      @job_offers = JobOffer.search_by_title_and_contract_type(params[:query])
+    else
+      @job_offers = JobOffer.all
+    end
+
+    respond_to do |format|
+      format.html
+      format.text { render partial: "job_offers/list", locals: { job_offers: @job_offers }, formats: [:html] }
+    end
   end
 
   def new

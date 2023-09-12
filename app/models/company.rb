@@ -1,4 +1,6 @@
 class Company < ApplicationRecord
+  # Search
+
   # Associations
   belongs_to :user, optional: true
   has_many :job_offers, dependent: :destroy

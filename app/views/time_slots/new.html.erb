@@ -23,7 +23,7 @@
         <p>Candidatures retenues :</p>
         <div class="mb-4">
           <% @selected_candidatures.each do |candidature| %>
-            <div class="card mb-2">
+            <div class="card card-time-slot mb-2">
               <div class="candidature-infos">
                 <%= check_box_tag "selected_candidatures[]", candidature.id, true, class: "candidature-checkbox" %>
                 <%= cl_image_tag candidature.user.avatar.key, class: "avatar", alt: "avatar" %>
@@ -46,6 +46,7 @@
 
     <div class="form-actions mt-4">
       <%= submit_tag "Envoyer", class: 'btn btn-primary mb-2'%>
+      <%= link_to "Revenir à la selection des candidats",  job_offer_candidatures_path(@job_offer), class: "btn btn-light mb-2" %>
     </div>
   <% end %>
 </div>

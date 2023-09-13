@@ -21,6 +21,7 @@
       <% end %>
     </div>
     <!-- Bouton pour passer à l'étape suivante -->
-    <%= submit_tag "Etape suivante", class: "btn btn-primary" %>
+    <%= submit_tag "Etape suivante", class: "btn btn-primary mb-2" %>
+    <%= link_to "Revenir à l'offre",  job_offer_path(@job_offer), class: "btn btn-light mb-2" %>
   <% end %>
 </div>

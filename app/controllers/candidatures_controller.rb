@@ -3,6 +3,7 @@ class CandidaturesController < ApplicationController
     @candidatures = policy_scope(Candidature)
     # Candidatures relative à une offre d'emploi spécifique
     @candidatures = Candidature.where(job_offer_id: params[:job_offer_id])
+    @job_offer = JobOffer.find(params[:job_offer_id]) # on récupère l'offre d'emploi
   end
 
   def show

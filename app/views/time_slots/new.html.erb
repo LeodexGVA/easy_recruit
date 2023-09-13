@@ -1,18 +1,6 @@
 <div class="container my-5">
   <h1>Nouvelle proposition d'entretien</h1>
-  <!-- Section erreurs formulaire -->
-  <div class="error-messages">
-    <% if @time_slot.errors.any? %>
-      <div id="error_explanation">
-        <p><strong><%= pluralize(@time_slot.errors.count, " erreurs") %> empêchent l'envoie du formulaire:</strong></p>
-        <ul>
-          <% @time_slot.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-        </ul>
-      </div>
-    <% end %>
-  </div>
+
   <!-- Formulaire new time_slot -->
   <%= form_tag(time_slots_path, method: :post, html: { class: 'custom-form' }) do %>
     <!-- Section candidature(s) sélectionné(s) -->

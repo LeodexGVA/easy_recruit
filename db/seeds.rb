@@ -41,10 +41,10 @@ user_candidate10.avatar.attach(io: URI.open("https://res.cloudinary.com/dlvve11n
 
 # Créer les compagnies
 puts "creating company test"
-company_test = Company.create(name: "EasyRecruit", description: "La solution de recrutement", email: "test@test.com", address: "Genève", phone: "1234567", industry: "IT", user: user_recruiter)
+company_test = Company.create(name: "Lewagon", description: "Formez-vous aux métiers de la Tech", email: "info@lewagon.com", address: "Paris", phone: "+33 6 62 56 31 09", industry: "IT", user: user_recruiter)
 
 # Ajout des logos aux compagnies
-company_test.logo.attach(io: URI.open("https://res.cloudinary.com/dlvve11nm/image/upload/v1694524736/development/logo_v2_skgknx.png"), filename: "logo.png", content_type: "image/png")
+company_test.logo.attach(io: URI.open("https://www.pngkit.com/png/detail/157-1573071_about-le-wagon-le-wagon-logo.png"), filename: "logo.png", content_type: "image/png")
 
 # Créer des offre lié par companies
 puts "creating job offer test"

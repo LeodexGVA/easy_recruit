@@ -22,7 +22,7 @@
       <% else %>
         <p>Candidatures retenues :</p>
         <div class="mb-4">
-          <% @selected_candidatures.each do |candidature| %>
+          <% @selected_candidatures.each_with_index do |candidature, index| %>
             <div class="card card-time-slot mb-2">
               <div class="col candidature-infos">
                 <%= check_box_tag "selected_candidatures[]", candidature.id, true, class: "candidature-checkbox" %>
@@ -37,6 +37,10 @@
               <div class="col time-slot-inputs">
                 <label for="date-<%= candidature.id %>">Heure:</label>
                 <%= time_field_tag "time-#{candidature.id}", as: :string, label: 'Heure', input_html: { data: { controller: 'datepicker' }, class: 'timepicker-input' } %>
+              </div>
+              <div class="more-info">
+                <a href="#" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#show_modal_<%= index %>"><span class="fa-solid fa-plus"></span> Plus d'info</a>
+                <%= render "show_modal", candidature: candidature %>
               </div>
             </div>
           <% end %>

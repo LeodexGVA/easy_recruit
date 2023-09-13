@@ -13,11 +13,7 @@
   align-items: baseline;
   justify-content: space-between;
 
-  * {
-    margin-right: 20px;
-
-    &:last-child {
-      margin-right: 0;
-    }
+  a {
+    font-size: 1rem;
   }
 }

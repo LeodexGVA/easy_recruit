@@ -12,7 +12,7 @@
         <p><strong>⭐️ Compétences:</strong> <%= @job_offer.skills %></p>
         <p><strong>🎓 Prérequis:</strong> <%= @job_offer.requirements %></p>
         <p><strong>📑 Type de contrat:</strong> <%= @job_offer.contract_type %></p>
-        <p><strong>📅 Dates:</strong> Du <%= @job_offer.start_date %> au <%= @job_offer.end_date %></p>
+        <p><strong>📅 Dates:</strong> Du <%=I18n.l(@job_offer.start_date)  %> au <%= I18n.l(@job_offer.end_date) %></p>
       </div>
     </div>
     <%# Liste des attributs de l'entreprise liée à l'offre %>
@@ -53,7 +53,7 @@
                   <tr>
                     <td><%= candidature.user.first_name %></td>
                     <td><%= candidature.user.last_name %></td>
-                    <td><%= candidature.created_at %></td>
+                    <td><%= I18n.l(candidature.created_at) %></td>
                     <td>
                         <% if candidature.job_offer.nil? %>
                           <span class="badge bg-warning">À traiter</span>
@@ -85,7 +85,7 @@
           <div class="card" data-aos="zoom-in">
             <div class="card-body">
               <span class="badge bg-warning"><%= time_slot.status %></span>
-              <p><%= time_slot.date %> <%= time_slot.time %></p>
+              <p><%= I18n.l(time_slot.date) %> <%= I18n.l(time_slot.time) %></p>
               <% candidature = time_slot.candidature %>
               <p><strong>Candidat:</strong> <%= candidature.user.first_name %> <%= candidature.user.last_name %></p>
             </div>
@@ -118,7 +118,7 @@
               <% else %>
                 <span class="badge bg-success"><%= time_slot.status %></span>
               <% end %>
-              <p><%= time_slot.date %> <%= time_slot.time %></p>
+              <p><%= I18n.l(time_slot.date) %> <%= I18n.l(time_slot.time) %></p>
               <% candidature = time_slot.candidature %>
               <% interview = time_slot.interviews.where(time_slot_id: time_slot.id) %>
               <p><strong>Candidat:</strong> <%= candidature.user.first_name %> <%= candidature.user.last_name %></p>

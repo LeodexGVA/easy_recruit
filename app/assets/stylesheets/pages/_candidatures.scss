@@ -1,0 +1,17 @@
+.card-body {
+  align-items: center;
+  gap: 20px;
+  position: relative;
+
+  .more-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: absolute;
+    right: 20px;
+
+    a {
+      font-size: 1rem;
+    }
+  }
+}

@@ -19,8 +19,8 @@
           <% else %>
             <p><strong>🔗 Linkedin:</strong> <%= candidature.user.linkedin_url %></p>
           <% end %>
-          <p><strong>💼 CV:</strong> <a href="<%= rails_blob_url(candidature.cv, disposition: 'attachment') %>", target="blank">Télécharger</a></p>
-          <p><strong>📝 Lettre de motivation:</strong> <a href="<%= rails_blob_url(candidature.lettre_motivation, disposition: 'attachment') %>", target="blank">Télécharger</a></p>
+          <p><strong>💼 CV:</strong> <a href="<%= rails_blob_url(candidature.cv, disposition: 'attachment') %>", target="blank"><span class="fa-solid fa-file-arrow-down"></span> Télécharger</a></p>
+          <p><strong>📝 Lettre de motivation:</strong> <a href="<%= rails_blob_url(candidature.lettre_motivation, disposition: 'attachment') %>", target="blank"><span class="fa-solid fa-file-arrow-down"></span> Télécharger</a></p>
         </div>
         <!-- Modal Footer Start -->
         <div class="modal-footer">

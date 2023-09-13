@@ -16,7 +16,7 @@
       </div>
     </div>
     <%# Liste des attributs de l'entreprise liée à l'offre %>
-    <div class="card mb-5 mt-5">
+    <div class="card mb-5 mt-5 m-2">
       <div class="card-header">
         <%= cl_image_tag @company.logo.key, class: "avatar", alt: "logo" %>
         <h2><%= @company.name.capitalize %></h2>
@@ -41,7 +41,8 @@
             <tr>
               <th>Prénom</th>
               <th>Nom</th>
-              <th>Actions</th>
+              <th>Date de candidature</th>
+              <th>Statut</th>
             </tr>
           </thead>
           <tbody class="table-border-bottom-0">
@@ -52,17 +53,13 @@
                   <tr>
                     <td><%= candidature.user.first_name %></td>
                     <td><%= candidature.user.last_name %></td>
+                    <td><%= candidature.created_at %></td>
                     <td>
-                    <div class="dropdown">
-                      <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
-                        <i class="bx bx-dots-vertical-rounded"></i>
-                      </button>
-                        <div class="dropdown-menu">
-                          <a class="dropdown-item" href="<%=  edit_job_offer_candidature_path(candidature) %>"><i class="bx bx-edit-alt me-1"></i> Modifier</a>
-                          <i class="bx bx-trash me-1 dropdown-item"></i>
-                          <%=link_to "Supprimer",  candidature_path(candidature), data: {turbo_method: :delete, turbo_confirm: "etes-vous sur de vouloir supprimer l'offre?"}, class: "bx bx-trash me-1 dropdown-item"%>
-                        </div>
-                      </div>
+                        <% if candidature.job_offer.nil? %>
+                          <span class="badge bg-warning">À traiter</span>
+                        <% else %>
+                          <span class="badge bg-success">Traitée</span>
+                        <% end %>
                     </td>
                   </tr>
                 <% end %>
@@ -73,23 +70,71 @@
   </div>
 
 
-  <%# Liste des entretiens lié à l'offre %>
-  <div class="card mb-5 mt-5">
-    <div class="card-header"><h2>Entretiens à venir</h2></div>
-   <div class="text-end"><%= link_to "Créer un entretien", job_offer_candidatures_path(@job_offer), class: "btn btn-primary rounded-4 mb-3" %></div>
-    <div class="cards row">
-
-      <% @time_slots.each do |time_slot| %>
+<div class="card mb-5 mt-5">
+  <div class="card-header">
+    <h2>Entretiens à venir</h2>
+  </div>
+  <div class="text-end">
+    <%= link_to "Créer un entretien", job_offer_candidatures_path(@job_offer), class: "btn btn-primary rounded-4 mb-3" %>
+  </div>
+  <div class="cards row">
+    <% pending_time_slots = @time_slots.select { |time_slot| time_slot.status == "Pending" } %>
+    <% if pending_time_slots.any? %>
+      <% pending_time_slots.each do |time_slot| %>
         <div class="col-md-4 col-sm-6 mb-4">
           <div class="card" data-aos="zoom-in">
             <div class="card-body">
-              <%= time_slot.status %>
+              <span class="badge bg-warning"><%= time_slot.status %></span>
+              <p><%= time_slot.date %> <%= time_slot.time %></p>
               <% candidature = time_slot.candidature %>
               <p><strong>Candidat:</strong> <%= candidature.user.first_name %> <%= candidature.user.last_name %></p>
             </div>
           </div>
         </div>
       <% end %>
-    </div>
+    <% else %>
+      <div class="col-12">
+        <p>Aucun entretien à venir.</p>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<div class="card mb-5 mt-5">
+  <div class="card-header">
+    <h2>Entretiens passés</h2>
+  </div>
+  <div class="cards row">
+    <% past_or_cancelled_time_slots = @time_slots.reject { |time_slot| time_slot.status == "Pending" } %>
+    <% if past_or_cancelled_time_slots.any? %>
+      <% past_or_cancelled_time_slots.each do |time_slot| %>
+        <div class="col-md-4 col-sm-6 mb-4">
+          <div class="card" data-aos="zoom-in">
+            <div class="card-body">
+              <% if time_slot.status == "Accepted" %>
+                <span class="badge bg-success"><%= time_slot.status %></span>
+              <% elsif time_slot.status == "Rejected" %>
+                <span class="badge bg-danger"><%= time_slot.status %></span>
+              <% else %>
+                <span class="badge bg-success"><%= time_slot.status %></span>
+              <% end %>
+              <p><%= time_slot.date %> <%= time_slot.time %></p>
+              <% candidature = time_slot.candidature %>
+              <% interview = time_slot.interviews.where(time_slot_id: time_slot.id) %>
+              <p><strong>Candidat:</strong> <%= candidature.user.first_name %> <%= candidature.user.last_name %></p>
+              <% if interview.any? %>
+                <%= link_to "Voir détails de l'entretien", interview_path(interview.first.id) %>
+              <% else %>
+                <p>Pas d'entretien</p>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% else %>
+      <div class="col-12">
+        <p>Aucun entretien passé ou annulé.</p>
+      </div>
+    <% end %>
   </div>
 </div>

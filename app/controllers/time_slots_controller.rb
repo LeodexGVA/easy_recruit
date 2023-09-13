@@ -46,6 +46,7 @@ class TimeSlotsController < ApplicationController
 
   def show
     @time_slot = TimeSlot.find(params[:id])
+    @time_slots = TimeSlot.where(job_offer_id: params[:id])
     authorize @time_slot
   end
 

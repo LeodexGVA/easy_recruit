@@ -3,3 +3,14 @@
     margin-right: 20px;
   }
 }
+
+.modal-body {
+  a {
+    color: #cb0c9f;
+    text-decoration: none;
+
+    &:hover {
+      color: #830866;
+    }
+  }
+}

@@ -1,0 +1,19 @@
+.candidature-infos {
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+
+  * {
+    margin-right: 10px;
+  }
+}
+
+.card-time-slot {
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+
+  a {
+    font-size: 1rem;
+  }
+}

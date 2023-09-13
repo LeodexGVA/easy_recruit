@@ -3,6 +3,7 @@ class TimeSlotsController < ApplicationController
     @selected_candidatures_ids = params[:selected_candidatures]
     @selected_candidatures = Candidature.where(id: @selected_candidatures_ids)
     @time_slot = TimeSlot.new
+    @job_offer = @selected_candidatures.first.job_offer
     authorize @time_slot
   end
 

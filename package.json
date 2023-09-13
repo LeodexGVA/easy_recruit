@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "flatpickr": "^4.6.13"
+    "flatpickr": "^4.6.13",
+    "star-rating.js": "^4.3.0"
   }
 }

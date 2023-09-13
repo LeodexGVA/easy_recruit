@@ -9,18 +9,19 @@
     <div class="row justify-content-center">
       <div class="card">
         <div class="card-header">
-          <h5>Ajouter un commentaire</h5>
+          <h5>Ajouter une évaluation</h5>
         </div>
         <div class="card-body">
           <div class="form-inputs">
-            <%= form.label :score, class: "form-label" %>
+            <%= form.label :score, "Note :", class: "form-label" %>
           </div>
-          <%= form.select :score, (1..5).to_a, class: "form-select" %>
+          <%= form.select :score, (1..5).to_a, { prompt: "Appliquer une note" }, { data: { controller: "star-rating" } } %>
+          <br>
           <div class="form-inputs">
-            <%= form.label :comment, class: "form-label" %>
+            <%= form.label :comment, "Commentaire :", class: "form-label" %>
           </div>
-          <%= form.text_area :comment, class: "textarea" %>
-        <%= form.submit 'Ajouter le feedback', { class: "btn btn-primary float-end" } %>
+          <%= form.text_area :comment %>
+          <%= form.submit 'Ajouter le feedback', { class: "btn btn-primary float-end" } %>
         </div>
       </div>
     </div>

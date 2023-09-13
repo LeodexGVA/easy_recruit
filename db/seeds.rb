@@ -121,10 +121,10 @@ interview_test3 = Interview.create(
 puts "feedback test"
 # Créer des feedbacks qui sont lié a un entretien et a un user candidat
 feedback_test1 = Feedback.create(
-  score: 4, comment: "Ceci est un super commentaire pour indiquer que c'est un entretien génial", user: user_candidate4, interview: interview_test1
+  score: 4, comment: "Ceci est un super commentaire pour indiquer que c'est un entretien génial", user: user_recruiter, interview: interview_test1
 )
 feedback_test2 = Feedback.create(
-  score: 3, comment: "Ceci est un super commentaire pour indiquer que c'est un entretien génial", user: user_candidate8, interview: interview_test3
+  score: 3, comment: "Ceci est un super commentaire pour indiquer que c'est un entretien génial", user: user_recruiter, interview: interview_test3
 )
 puts "finished seeding"
 # Créer des tests pour les validations avec des messages d'erreurs

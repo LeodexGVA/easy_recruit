@@ -11,7 +11,7 @@ class Interview < ApplicationRecord
   belongs_to :user
   has_many :feedbacks, dependent: :destroy
   # Validations
-  validates :status, presence: true, inclusion: { in: %w[Upcoming Done Cancelled] }
+  validates :status, presence: true, inclusion: { in: STATUSES.keys }
 
   def translated_status
     STATUSES[status]

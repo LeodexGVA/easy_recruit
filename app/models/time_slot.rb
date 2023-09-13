@@ -10,8 +10,8 @@ class TimeSlot < ApplicationRecord
   belongs_to :candidature
   has_many :interviews, dependent: :destroy
   # Validations
-  validates :time, presence: true, format: { with: /\A\d{2}:\d{2}\z/, message: "Le format de l'heure doit être hh:mm" }
-  validates :date, presence: true, format: { with: /\A\d{2}\/\d{2}\/\d{4}\z/, message: "Le format de la date doit être jj/mm/aaaa" }
+  validates :time, presence: true
+  validates :date, presence: true
   validates :status, presence: true, inclusion: { in: STATUSES.keys }
   validate :date_must_be_in_the_future
 

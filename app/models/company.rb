@@ -14,14 +14,14 @@ class Company < ApplicationRecord
   validates :industry, presence: true, inclusion: { in: %w[IT Finance Marketing Other] }
 
   # Callbacks
-  after_initialize :set_default_industry, if: :new_record?
+  # after_initialize :set_default_industry, if: :new_record?
 
   # Cloudinary
   has_one_attached :logo
 
   private
 
-  def set_default_industry
-    self.industry = 'Other'
-  end
+  # def set_default_industry
+  #   self.industry = 'Other'
+  # end
 end

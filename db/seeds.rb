@@ -42,8 +42,8 @@ user_candidate10.avatar.attach(io: URI.open("https://res.cloudinary.com/dlvve11n
 
 # Créer les compagnies
 puts "creating company test"
-company_test1 = Company.create(name: "Le Wagon", description: "Formez-vous aux métiers de la Tech", email: "contact@lewagon.com", address: "16 Villa Gaudelet, 75011 Paris", phone: "+33 1 23 45 67 89", industry: "IT", user: user_recruiter)
-company_test2 = Company.create(name: "Publicis Media", description: "Publicis Media exploite la puissance des médias modernes grâce à des marques d'agence mondiales", email: "contact@publicis.com", address: "43 rue Paradis, 13002 Marseille", phone: "+33 1 23 45 67 89", industry: "Marketing", user: user_recruiter2)
+company_test1 = Company.create(name: "Le Wagon", description: "Formez-vous aux métiers de la Tech", email: "contact@lewagon.com", address: "16 Villa Gaudelet, 75011 Paris", phone: "+33 1 23 45 67 89", industry: "IT", user: user_recruiter2)
+company_test2 = Company.create(name: "Publicis Media", description: "Publicis Media exploite la puissance des médias modernes grâce à des marques d'agence mondiales", email: "contact@publicis.com", address: "43 rue Paradis, 13002 Marseille", phone: "+33 1 23 45 67 89", industry: "Marketing", user: user_recruiter1)
 company_test3 = Company.create(name: "Qonto", description: "Toutes vos finances pro. Une seule solution", email: "contact@qonto.com", address: "9 rue de Navarin, 75009 Paris", phone: "+33 1 23 45 67 89", industry: "Finance", user: user_recruiter3)
 # Ajout des logos aux compagnies
 company_test1.logo.attach(io: URI.open("https://www.pngkit.com/png/detail/157-1573071_about-le-wagon-le-wagon-logo.png"), filename: "logo1.png", content_type: "image/png")
@@ -106,7 +106,7 @@ job_offer_test3 = JobOffer.create(
   start_date: Date.today,
   end_date: Date.today + rand(30..90).days, # Date aléatoire entre 30 et 90 jours à partir d'aujourd'hui
   deadline: Date.today + rand(0..30).days, # Date limite aléatoire entre la start_date et end_date
-  company: company_test2,
+  company: company_test1,
   salaire: "45000"
 )
 
@@ -121,7 +121,7 @@ job_offer_test4 = JobOffer.create(
   start_date: Date.today,
   end_date: Date.today + rand(30..90).days,
   deadline: Date.today + rand(0..30).days,
-  company: company_test2,
+  company: company_test1,
   salaire: "55000"
 )
 
@@ -136,7 +136,7 @@ job_offer_test5 = JobOffer.create(
   start_date: Date.today,
   end_date: Date.today + rand(30..90).days,
   deadline: Date.today + rand(0..30).days,
-  company: company_test3,
+  company: company_test1,
   salaire: "60000"
 )
 
@@ -151,7 +151,7 @@ job_offer_test6 = JobOffer.create(
   start_date: Date.today,
   end_date: Date.today + rand(30..90).days,
   deadline: Date.today + rand(0..30).days,
-  company: company_test3,
+  company: company_test1,
   salaire: "58000"
 )
 
@@ -181,7 +181,7 @@ job_offer_test8 = JobOffer.create(
   start_date: Date.today,
   end_date: Date.today + rand(30..90).days,
   deadline: Date.today + rand(0..30).days,
-  company: company_test2,
+  company: company_test1,
   salaire: "62000"
 )
 
@@ -196,7 +196,7 @@ job_offer_test9 = JobOffer.create(
   start_date: Date.today,
   end_date: Date.today + rand(30..90).days,
   deadline: Date.today + rand(0..30).days,
-  company: company_test3,
+  company: company_test1,
   salaire: "55000"
 )
 

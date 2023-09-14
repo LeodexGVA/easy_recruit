@@ -1,0 +1,12 @@
+    fr:
+      simple_form:
+        labels:
+          create: 'Soumettre'
+        hints:
+          update: 'Mettre à jour'
+        placeholders:
+          submit: 'Soumettre'
+        prompts:
+          cancel: 'Annuler'
+          edit: 'Éditer'
+          destroy: 'Supprimer'

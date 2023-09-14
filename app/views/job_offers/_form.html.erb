@@ -8,20 +8,20 @@
           <%= f.select :contract_type, %w[CDI CDD Intérim], { include_blank: "Sélectionner le type de contrat" }, { class: "form-select" } %>
           <%= f.input :title, label: "Titre de l'emploi" %>
           <%= f.input :address, label: 'Adresse' %>
-          <%= f.input :skills, label: 'Skills' %>
-          <%= f.input :requirements, label: 'Requirements' %>
+          <%= f.input :skills, label: 'Compétences' %>
+          <%= f.input :requirements, label: 'Requis' %>
           <%= f.input :description, label: 'Description' %>
           <!-- <%= f.input :images, as: :file, label: 'Images', input_html: { multiple: true } %> -->
           <!-- Champ de date de début -->
-          <%= f.input :start_date, as: :string, label: 'Date de début', input_html: { data: { controller: 'datepicker' }, class: 'datepicker-input' }%>
+          <%= f.input :start_date, as: :string, label: 'Date de début de publication', input_html: { data: { controller: 'datepicker' }, class: 'datepicker-input' }%>
           <!-- Champ de date de fin -->
           <%= f.input :end_date, as: :string, label: 'Date de fin', input_html: { data: { controller: 'datepicker' }, class: 'datepicker-input' } %>
-          <%= f.input :end_date, as: :string, label: 'Deadline', input_html: { data: { controller: 'datepicker' }, class: 'datepicker-input' } %>
+          <%= f.input :end_date, as: :string, label: "Date d'entrée en fonction", input_html: { data: { controller: 'datepicker' }, class: 'datepicker-input' } %>
 
         </div>
 
         <div class="form-actions text-center mt-4">
-          <%= f.button :submit, class: 'btn btn-primary mb-2'%>
+          <%= f.button :submit, t('simple_form.labels.create'), class: 'btn btn-primary mb-2'%>
         </div>
       <% end %>
     </div>

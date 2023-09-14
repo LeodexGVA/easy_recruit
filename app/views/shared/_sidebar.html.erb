@@ -1,32 +1,22 @@
 <aside class="sidebar">
-<div>
+  <div>
     <%= link_to root_path do %>
-    <div class="text-center">
-
-      <%= image_tag "logo_v2.png", alt: "logo", class: "w-75 justify-content-center" %>
-    </div>
+      <div class="text-center">
+        <%= image_tag "logo_v2.png", alt: "logo", class: "w-75 justify-content-center" %>
+      </div>
     <% end %>
-</div>
+  </div>
   <ul class="sidebar-nav mt-5">
     <li class="sidebar-item">
-      <a class="sidebar-link active" href="dashboard.html">
-        Dashboard
-      </a>
+      <%= link_to "Dashboard", root_path, class: "sidebar-link#{' active' if current_page?(root_path)}" %>
     </li>
     <li class="sidebar-item">
-      <a class="sidebar-link" href="job_offers">
-        Offre d'emplois
-      </a>
+      <%= link_to "Offre d'emplois", job_offers_path, class: "sidebar-link#{' active' if current_page?(job_offers_path)}" %>
     </li>
     <li class="sidebar-item">
-      <a class="sidebar-link" href="messages.html">
-        Entretiens
-      </a>
+      <%= link_to "Candidatures", candidatures_path, class: "sidebar-link#{' active' if current_page?(candidatures_path)}" %>
     </li>
     <li class="sidebar-item">
-      <a class="sidebar-link" href="settings.html">
-        Entreprises
-      </a>
-    </li>
+      <%= link_to "Entretiens", interviews_path, class: "sidebar-link#{' active' if current_page?(interviews_path)}" %>
   </ul>
 </aside>

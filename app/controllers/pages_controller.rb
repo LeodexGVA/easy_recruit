@@ -7,5 +7,4 @@ class PagesController < ApplicationController
     @total_job_offers = JobOffer.count
     @interviews = Interview.all
   end
-
 end

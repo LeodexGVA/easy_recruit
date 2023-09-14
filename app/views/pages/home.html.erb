@@ -1,5 +1,5 @@
 <div class="container my-5">
-  <div class="container mb-5 d-flex flex-row justify-content-between">
+  <div class="container mb-5 d-flex justify-content-between">
     <div class="card">
       <h2>Entretiens</h5>
         <table class="table">
@@ -11,11 +11,17 @@
             </tr>
           </thead>
           <tbody>
-            <% @interviews.each do |interview| %>
+            <% @time_slots.each do |time_slot| %>
               <tr>
-                <td><strong><%= interview.time_slot.candidature.user.first_name %> <%= interview.time_slot.candidature.user.last_name %></strong></td>
-                <td><%= interview.translated_status %></td>
-                <td><%= I18n.l(interview.time_slot.date) %></td>
+                <td><strong><%= time_slot.candidature.user.first_name %> <%= time_slot.candidature.user.last_name %></strong></td>
+              <td><% if time_slot.status == "Accepted" %>
+                <span class="badge bg-success"><%= time_slot.translated_status %></span>
+              <% elsif time_slot.status == "Rejected" %>
+                <span class="badge bg-danger"><%= time_slot.translated_status %></span>
+              <% else %>
+                <span class="badge bg-warning"><%= time_slot.translated_status %></span>
+              <% end %></td>
+            <td><%= I18n.l(time_slot.date) %></td>
               </tr>
             <% end %>
           </tbody>
@@ -23,17 +29,27 @@
 
     </div>
     <div class="card">
-      <%= image_tag("interview.png", width: 40, height: 40) %>
+      <%= image_tag("candidature.png", width: 50, height: 50) %>
       <br>
-      <h1 class="text-center" style="color: blue;"><%= @total_interviews %></h1>
-      <p>entretiens passés</p>
+      <br>
+      <h1 class="text-center" style="color: #CB0C9F;"><%= @total_candidatures %></h1>
+      <p>candidatures</p>
     </div>
 
     <div class="card">
-      <%= image_tag("work.png", width: 40, height: 40) %>
+      <%= image_tag("interview.png", width: 50, height: 50) %>
       <br>
-      <h1 class="text-center" style="color: blue;"><%= @total_job_offers %></h1>
-      <p>offres d'emploi publiées</p>
+      <br>
+      <h1 class="text-center" style="color: #CB0C9F"><%= @total_time_slots %></h1>
+      <p>entretiens à venir</p>
+    </div>
+
+    <div class="card">
+      <%= image_tag("work.png", width: 50, height: 50) %>
+      <br>
+      <br>
+      <h1 class="text-center" style="color: #CB0C9F"><%= @total_job_offers %></h1>
+      <p>offres d'emplois</p>
     </div>
   </div>
 

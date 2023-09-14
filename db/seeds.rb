@@ -13,6 +13,8 @@ TimeSlot.destroy_all
 puts "Creating user test"
 # Créer l'utilisateur recruteur
 user_recruiter = User.create(  first_name: "Dylan", last_name: "C", email: "test@gmail.com", password: "1234567", address: "24 chemin des champs gottreux", phone: "123456", user_type: "recruiter", admin: false)
+user_recruiter2 = User.create(  first_name: "Michel", last_name: "F", email: "test2@gmail.com", password: "1234567", address: "Lyon", phone: "123456", user_type: "recruiter", admin: false)
+user_recruiter3 = User.create(  first_name: "Hadrien", last_name: "G", email: "test3@gmail.com", password: "1234567", address: "Paris", phone: "123456", user_type: "recruiter", admin: false)
 
 # Créer les utilisateurs candidats
 user_candidate1 = User.create(  first_name: "John", last_name: "Doe", email: "john.doe1@example.com", password: "motdepasse1", address: "123 Rue de la République, Paris", phone: "+33 1 23 45 67 89", user_type: "candidate", admin: false, birth_date: Date.parse("1998-01-15"), linkedin_url: "https://www.linkedin.com/in/john-doe-58642923b")
@@ -40,10 +42,13 @@ user_candidate10.avatar.attach(io: URI.open("https://res.cloudinary.com/dlvve11n
 
 # Créer les compagnies
 puts "creating company test"
-company_test = Company.create(name: "EasyRecruit", description: "La solution de recrutement", email: "test@test.com", address: "Genève", phone: "1234567", industry: "IT", user: user_recruiter)
-
+company_test1 = Company.create(name: "Le Wagon", description: "Formez-vous aux métiers de la Tech", email: "contact@lewagon.com", address: "16 Villa Gaudelet, 75011 Paris", phone: "+33 1 23 45 67 89", industry: "IT", user: user_recruiter)
+company_test2 = Company.create(name: "Publicis Media", description: "Publicis Media exploite la puissance des médias modernes grâce à des marques d'agence mondiales", email: "contact@publicis.com", address: "43 rue Paradis, 13002 Marseille", phone: "+33 1 23 45 67 89", industry: "Marketing", user: user_recruiter2)
+company_test3 = Company.create(name: "Qonto", description: "Toutes vos finances pro. Une seule solution", email: "contact@qonto.com", address: "9 rue de Navarin, 75009 Paris", phone: "+33 1 23 45 67 89", industry: "Finance", user: user_recruiter3)
 # Ajout des logos aux compagnies
-company_test.logo.attach(io: URI.open("https://res.cloudinary.com/dlvve11nm/image/upload/v1694524736/development/logo_v2_skgknx.png"), filename: "logo.png", content_type: "image/png")
+company_test1.logo.attach(io: URI.open("https://www.pngkit.com/png/detail/157-1573071_about-le-wagon-le-wagon-logo.png"), filename: "logo1.png", content_type: "image/png")
+company_test2.logo.attach(io: URI.open("https://www.publicisgroupe.com/themes/custom/publicis/front/src/images/theme/share.jpg"), filename: "logo2.png", content_type: "image/png")
+company_test3.logo.attach(io: URI.open("https://pbs.twimg.com/profile_images/1493510639054200834/iuwQUAyN_400x400.jpg"), filename: "logo2.png", content_type: "image/png")
 
 # Créer des offre lié par companies
 puts "creating job offer test"
@@ -55,7 +60,9 @@ addresses = [
   "20 rue des Capucins, 69001 Lyon",
   "IJsbaanpad 9, 1076 CV Amsterdam",
   "Rudi-Dutschke-Straße 26, 10969 Berlin",
-  "Cantersteen Street 10, 1000 Brussels"
+  "Cantersteen Street 10, 1000 Brussels",
+  "9 rue de Navarin, 75009 Paris",
+  "43 rue Paradis, 13002 Marseille"
 ]
 
 # Offre d'emploi 1
@@ -69,7 +76,7 @@ job_offer_test1 = JobOffer.create(
   start_date: Date.today,
   end_date: Date.today + rand(30..90).days, # Date aléatoire entre 30 et 90 jours à partir d'aujourd'hui
   deadline: Date.today + rand(0..30).days, # Date limite aléatoire entre la start_date et end_date
-  company: company_test,
+  company: company_test1,
   salaire: "25000"
 )
 
@@ -84,7 +91,7 @@ job_offer_test2 = JobOffer.create(
   start_date: Date.today,
   end_date: Date.today + rand(30..90).days, # Date aléatoire entre 30 et 90 jours à partir d'aujourd'hui
   deadline: Date.today + rand(0..30).days, # Date limite aléatoire entre la start_date et end_date
-  company: company_test,
+  company: company_test1,
   salaire: "30000"
 )
 
@@ -99,7 +106,7 @@ job_offer_test3 = JobOffer.create(
   start_date: Date.today,
   end_date: Date.today + rand(30..90).days, # Date aléatoire entre 30 et 90 jours à partir d'aujourd'hui
   deadline: Date.today + rand(0..30).days, # Date limite aléatoire entre la start_date et end_date
-  company: company_test,
+  company: company_test2,
   salaire: "45000"
 )
 
@@ -114,7 +121,7 @@ job_offer_test4 = JobOffer.create(
   start_date: Date.today,
   end_date: Date.today + rand(30..90).days,
   deadline: Date.today + rand(0..30).days,
-  company: company_test,
+  company: company_test2,
   salaire: "55000"
 )
 
@@ -129,7 +136,7 @@ job_offer_test5 = JobOffer.create(
   start_date: Date.today,
   end_date: Date.today + rand(30..90).days,
   deadline: Date.today + rand(0..30).days,
-  company: company_test,
+  company: company_test3,
   salaire: "60000"
 )
 
@@ -144,7 +151,7 @@ job_offer_test6 = JobOffer.create(
   start_date: Date.today,
   end_date: Date.today + rand(30..90).days,
   deadline: Date.today + rand(0..30).days,
-  company: company_test,
+  company: company_test3,
   salaire: "58000"
 )
 
@@ -159,7 +166,7 @@ job_offer_test7 = JobOffer.create(
   start_date: Date.today,
   end_date: Date.today + rand(30..90).days,
   deadline: Date.today + rand(0..30).days,
-  company: company_test,
+  company: company_test1,
   salaire: "54000"
 )
 
@@ -174,7 +181,7 @@ job_offer_test8 = JobOffer.create(
   start_date: Date.today,
   end_date: Date.today + rand(30..90).days,
   deadline: Date.today + rand(0..30).days,
-  company: company_test,
+  company: company_test2,
   salaire: "62000"
 )
 
@@ -189,7 +196,7 @@ job_offer_test9 = JobOffer.create(
   start_date: Date.today,
   end_date: Date.today + rand(30..90).days,
   deadline: Date.today + rand(0..30).days,
-  company: company_test,
+  company: company_test3,
   salaire: "55000"
 )
 
@@ -204,7 +211,7 @@ job_offer_test10 = JobOffer.create(
   start_date: Date.today,
   end_date: Date.today + rand(30..90).days,
   deadline: Date.today + rand(0..30).days,
-  company: company_test,
+  company: company_test1,
   salaire: "52000"
 )
 
@@ -295,7 +302,7 @@ puts user_candidate7.errors.full_messages
 puts user_candidate8.errors.full_messages
 puts user_candidate9.errors.full_messages
 puts user_candidate10.errors.full_messages
-puts company_test.errors.full_messages
+puts company_test1.errors.full_messages
 puts job_offer_test1.errors.full_messages
 puts job_offer_test2.errors.full_messages
 puts job_offer_test3.errors.full_messages

@@ -18,8 +18,7 @@
     <%# Liste des attributs de l'entreprise liée à l'offre %>
     <div class="card mb-5 mt-5 m-2">
       <div class="card-header">
-        <%= cl_image_tag @company.logo.key, class: "avatar", alt: "logo" %>
-        <h2><%= @company.name.capitalize %></h2>
+        <h2><%= cl_image_tag @company.logo.key, class: "avatar", alt: "logo" %> <%= @company.name.capitalize %></h2>
       </div>
         <div class="card-body">
           <p><strong>💼 Secteur:</strong> <%= @company.industry %></p>
@@ -93,8 +92,8 @@
         </div>
       <% end %>
     <% else %>
-      <div class="col-12">
-        <p>Aucun entretien à venir.</p>
+      <div class="text-center">
+        <h4><strong>Aucun entretien à venir.</strong></h4>
       </div>
     <% end %>
   </div>

@@ -17,7 +17,7 @@
           <% if candidature.user.linkedin_url == nil %>
             <p><strong>🔗 Linkedin:</strong> Pas de lien Linkedin</p>
           <% else %>
-            <p><strong>🔗 Linkedin:</strong> <%= candidature.user.linkedin_url %></p>
+            <p><strong>🔗 Linkedin:</strong><a href="<%= candidature.user.linkedin_url %>"> lien vers profil</a> </p>
           <% end %>
           <p><strong>💼 CV:</strong> <a href="<%= rails_blob_url(candidature.cv, disposition: 'attachment') %>", target="blank"><span class="fa-solid fa-file-arrow-down"></span> Télécharger</a></p>
           <p><strong>📝 Lettre de motivation:</strong> <a href="<%= rails_blob_url(candidature.lettre_motivation, disposition: 'attachment') %>", target="blank"><span class="fa-solid fa-file-arrow-down"></span> Télécharger</a></p>

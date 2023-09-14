@@ -12,7 +12,7 @@ TimeSlot.destroy_all
 
 puts "Creating user test"
 # Créer l'utilisateur recruteur
-user_recruiter = User.create(  first_name: "Dylan", last_name: "C", email: "test@gmail.com", password: "1234567", address: "24 chemin des champs gottreux", phone: "123456", user_type: "recruiter", admin: false)
+user_recruiter1 = User.create(  first_name: "Dylan", last_name: "C", email: "test@gmail.com", password: "1234567", address: "24 chemin des champs gottreux", phone: "123456", user_type: "recruiter", admin: false)
 user_recruiter2 = User.create(  first_name: "Michel", last_name: "F", email: "test2@gmail.com", password: "1234567", address: "Lyon", phone: "123456", user_type: "recruiter", admin: false)
 user_recruiter3 = User.create(  first_name: "Hadrien", last_name: "G", email: "test3@gmail.com", password: "1234567", address: "Paris", phone: "123456", user_type: "recruiter", admin: false)
 
@@ -273,25 +273,25 @@ time_slot_test6 = TimeSlot.create(
 puts "interview test"
 # Créer des entretiens qui sont lié a un timeslot et a un user recruteur
 interview_test1 = Interview.create(
-  time_slot: time_slot_test2, status: "Done", user: user_recruiter
+  time_slot: time_slot_test2, status: "Done", user: user_recruiter1
 )
 # interview_test2 = Interview.create(
 #   time_slot: time_slot_test3, status: "Upcoming", user: user_recruiter
 # )
 interview_test3 = Interview.create(
-  time_slot: time_slot_test4, status: "Done", user: user_recruiter
+  time_slot: time_slot_test4, status: "Done", user: user_recruiter1
 )
 puts "feedback test"
 # Créer des feedbacks qui sont lié a un entretien et a un user candidat
 feedback_test1 = Feedback.create(
-  score: 4, comment: "Ceci est un super commentaire pour indiquer que c'est un entretien génial", user: user_recruiter, interview: interview_test1
+  score: 4, comment: "Ceci est un super commentaire pour indiquer que c'est un entretien génial", user: user_recruiter1, interview: interview_test1
 )
 feedback_test2 = Feedback.create(
-  score: 3, comment: "Ceci est un super commentaire pour indiquer que c'est un entretien génial", user: user_recruiter, interview: interview_test3
+  score: 3, comment: "Ceci est un super commentaire pour indiquer que c'est un entretien génial", user: user_recruiter1, interview: interview_test3
 )
 puts "finished seeding"
 # Créer des tests pour les validations avec des messages d'erreurs
-puts user_recruiter.errors.full_messages
+puts user_recruiter1.errors.full_messages
 puts user_candidate1.errors.full_messages
 puts user_candidate2.errors.full_messages
 puts user_candidate3.errors.full_messages

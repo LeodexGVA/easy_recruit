@@ -3,8 +3,10 @@ class PagesController < ApplicationController
 
   def home
     @job_offers = JobOffer.order(created_at: :desc).limit(5)
-    @total_interviews = Interview.count
+    @time_slots = TimeSlot.limit(3)
+    @total_time_slots = TimeSlot.count
     @total_job_offers = JobOffer.count
+    @total_candidatures = Candidature.count
     @interviews = Interview.all
   end
 end

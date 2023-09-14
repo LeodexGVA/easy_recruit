@@ -53,7 +53,7 @@
                   <tr>
                     <td><%= candidature.user.first_name %></td>
                     <td><%= candidature.user.last_name %></td>
-                    <td><%= I18n.l(candidature.created_at) %></td>
+                    <td><%= candidature.created_at.strftime("%d/%m/%Y %H:%M") %></td>
                     <td>
                         <% if candidature.job_offer.nil? %>
                           <span class="badge bg-warning">À traiter</span>
@@ -112,11 +112,11 @@
           <div class="card" data-aos="zoom-in">
             <div class="card-body">
               <% if time_slot.status == "Accepted" %>
-                <span class="badge bg-success"><%= time_slot.status %></span>
+                <span class="badge bg-success"><%= time_slot.translated_status %></span>
               <% elsif time_slot.status == "Rejected" %>
-                <span class="badge bg-danger"><%= time_slot.status %></span>
+                <span class="badge bg-danger"><%= time_slot.translated_status %></span>
               <% else %>
-                <span class="badge bg-success"><%= time_slot.status %></span>
+                <span class="badge bg-success"><%= time_slot.tranlated_status %></span>
               <% end %>
               <p><%= I18n.l(time_slot.date) %> <%= I18n.l(time_slot.time) %></p>
               <% candidature = time_slot.candidature %>

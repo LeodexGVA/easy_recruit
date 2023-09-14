@@ -20,8 +20,33 @@
         </div>
       <% end %>
     </div>
-    <!-- Bouton pour passer à l'étape suivante -->
-    <%= submit_tag "Etape suivante", class: "btn btn-primary mb-2" %>
+    <!-- Bouton pour passer à l'étape suivante MAIS vérifie avant si une checkbox est selectionné sinon disabled-->
+    <%= submit_tag "Etape suivante", class: "btn btn-primary mb-2", id: "next-button", disabled: true %>
     <%= link_to "Revenir à l'offre",  job_offer_path(@job_offer), class: "btn btn-light mb-2" %>
   <% end %>
 </div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    var checkboxes = document.querySelectorAll(".candidature-checkbox");
+    var nextButton = document.getElementById("next-button");
+
+    // Fonction pour vérifier si au moins une case est cochée
+    function checkSelection() {
+      var isChecked = Array.from(checkboxes).some(function (checkbox) {
+        return checkbox.checked;
+      });
+
+      // Activer ou désactiver le bouton en fonction de la sélection
+      nextButton.disabled = !isChecked;
+    }
+
+    // Écoutez les changements de sélection des cases
+    checkboxes.forEach(function (checkbox) {
+      checkbox.addEventListener("change", checkSelection);
+    });
+
+    // Vérifiez initialement la sélection
+    checkSelection();
+  });
+</script>

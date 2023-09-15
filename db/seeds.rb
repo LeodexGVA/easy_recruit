@@ -46,7 +46,7 @@ company_test1 = Company.create(name: "Le Wagon", description: "Formez-vous aux m
 company_test2 = Company.create(name: "Publicis Media", description: "Publicis Media exploite la puissance des médias modernes grâce à des marques d'agence mondiales", email: "contact@publicis.com", address: "43 rue Paradis, 13002 Marseille", phone: "+33 1 23 45 67 89", industry: "Marketing", user: user_recruiter1)
 company_test3 = Company.create(name: "Qonto", description: "Toutes vos finances pro. Une seule solution", email: "contact@qonto.com", address: "9 rue de Navarin, 75009 Paris", phone: "+33 1 23 45 67 89", industry: "Finance", user: user_recruiter3)
 # Ajout des logos aux compagnies
-company_test1.logo.attach(io: URI.open("https://www.pngkit.com/png/detail/157-1573071_about-le-wagon-le-wagon-logo.png"), filename: "logo1.png", content_type: "image/png")
+company_test1.logo.attach(io: File.open(Rails.root.join("app/assets/images/logo_wagon.png")), filename: "logo1.png", content_type: "image/png")
 company_test2.logo.attach(io: URI.open("https://www.publicisgroupe.com/themes/custom/publicis/front/src/images/theme/share.jpg"), filename: "logo2.png", content_type: "image/png")
 company_test3.logo.attach(io: URI.open("https://pbs.twimg.com/profile_images/1493510639054200834/iuwQUAyN_400x400.jpg"), filename: "logo2.png", content_type: "image/png")
 

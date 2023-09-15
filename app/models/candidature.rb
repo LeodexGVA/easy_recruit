@@ -10,16 +10,16 @@ class Candidature < ApplicationRecord
   validates :user, presence: true
   validates :status, presence: true, inclusion: { in: %w[submitted accepted rejected] }
 
-  # Callbacks
-  after_initialize :set_default_status, if: :new_record?
+  # # Callbacks
+  # after_initialize :set_default_status, if: :new_record?
 
   # Cloudinary
   has_one_attached :cv
   has_one_attached :lettre_motivation
 
-  private
+  # private
 
-  def set_default_status
-    self.status = 'submitted'
-  end
+  # def set_default_status
+  #   self.status = 'submitted'
+  # end
 end
